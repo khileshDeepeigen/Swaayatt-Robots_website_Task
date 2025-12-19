@@ -14,17 +14,17 @@ export default function Contact() {
 
             {/* ================= CONTACT INFO ================= */}
             <div className="border border-gray-300 rounded-lg p-4 sm:p-6 bg-white">
-              <h1 className="text-2xl sm:text-3xl font-bold mb-1">
+              <h1 className="text-2xl sm:text-3xl font-[600] mb-1 text-[#1A212F]">
                 Contact Us
               </h1>
 
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-[#1A212FB2] mb-4">
                 Have any questions? Drop us a mail or give us a call.
               </p>
 
               <hr className="border-gray-300 mb-4" />
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <ContactRow
                   icon={locationIcon}
                   title="Location"
@@ -55,7 +55,8 @@ export default function Contact() {
             </div>
 
             {/* ================= MAP ================= */}
-            <div className="h-[260px] sm:h-[340px] lg:h-[420px] rounded-lg overflow-hidden border border-gray-300">
+           <div className="w-[942px] h-[560px] rounded-[20px] overflow-hidden border border-gray-300">
+
               <iframe
                 title="Swaayatt Robots Location"
                 src="https://www.google.com/maps?q=Swaayatt%20Robots%20Bhopal&output=embed"
@@ -74,18 +75,24 @@ export default function Contact() {
 /* ================= CONTACT ROW ================= */
 function ContactRow({ icon, title, text, link, linkText }) {
   return (
-    <div className="flex items-start gap-3">
-      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-        <img src={icon} alt={title} className="w-4 h-4" />
+    <div className="flex items-start gap-4">
+      {/* ICON (64x64) */}
+      <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+        <img
+          src={icon}
+          alt={title}
+          className="w-8 h-8 object-contain"
+        />
       </div>
 
+      {/* TEXT CONTENT */}
       <div>
-        <h3 className="text-xs font-medium text-gray-500">
+        <h3 className="text-[16px] font-[500] text-[#1A212F66]">
           {title}
         </h3>
 
         {text && (
-          <p className="text-xs text-gray-700 leading-snug mt-0.5">
+          <p className="text-[16px] font-[400] text-[#1A212F] leading-snug mt-0.5">
             {text}
           </p>
         )}
@@ -93,10 +100,10 @@ function ContactRow({ icon, title, text, link, linkText }) {
         {link && (
           <a
             href={link}
-            className={`text-xs ${
+            className={`text-sm font-[500] mt-0.5 inline-block ${
               title === "Call"
-                ? "text-gray-900"
-                : "text-blue-600 underline"
+                ? "text-[#1A212F]"
+                : "text-[#174CD2] underline"
             }`}
           >
             {linkText}

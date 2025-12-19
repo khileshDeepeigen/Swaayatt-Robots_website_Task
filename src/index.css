@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FORCE INTER FONT EVERYWHERE */
-body {
-  font-family: 'Inter', sans-serif;
+* {
+  font-family: "Rethink Sans";
   font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

@@ -15,7 +15,7 @@ const blogs = [
     description:
       "Autonomous Driving is undeniably the most formidable AI challenge of this decade. It remains a dynamic focus of active research.",
     date: "2023-10-28",
-    videoUrl: "", // backend will provide later
+    videoUrl: "",
   },
   {
     id: 2,
@@ -51,10 +51,11 @@ const blogs = [
 export default function Blogs() {
   return (
     <main className="bg-white">
-      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-16">
+      {/* ↓ reduced top padding ONLY for mobile */}
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 sm:pt-16 pb-16">
 
         {/* ===== HEADING ===== */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <h1 className="text-[36px] font-semibold text-[#111]">
             Discover and Learn
           </h1>
@@ -67,15 +68,11 @@ export default function Blogs() {
         {/* ===== BLOG GRID ===== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {blogs.map((blog) => (
-            <Link
-              key={blog.id}
-              to={`/blogs/${blog.id}`}
-              className="group"
-            >
+            <Link key={blog.id} to={`/blogs/${blog.id}`} className="group">
               <div className="rounded-xl overflow-hidden border border-gray-200 bg-white transition-transform duration-200 hover:-translate-y-[4px]">
 
-                {/* Image */}
-                <div className="h-[180px] overflow-hidden">
+                {/* ===== IMAGE (responsive height) ===== */}
+                <div className="h-[150px] sm:h-[180px] overflow-hidden">
                   <img
                     src={blog.image}
                     alt={blog.title}
@@ -97,13 +94,12 @@ export default function Blogs() {
                     </p>
                   </div>
 
-                  {/* META + VIDEO PLACEHOLDER */}
+                  {/* META + VIDEO */}
                   <div className="mt-3 flex items-center justify-between">
                     <p className="text-[12px] text-[#9CA3AF]">
                       {blog.date}
                     </p>
 
-                    {/* Backend-ready video link */}
                     {blog.videoUrl ? (
                       <a
                         href={blog.videoUrl}

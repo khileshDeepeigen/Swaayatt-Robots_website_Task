@@ -1,8 +1,9 @@
 import React from "react";
 
 /* ================= PUBLIC IMAGE PATHS ================= */
-const head = "../../public/images/research/motion-planning/motion.webp";
-const  thumbnail= "../../public/images/Blogs/Blog-1.webp";
+const head = "/images/research/motion-planning/motion.webp";
+const thumbnail = "/images/Blogs/Blog-1.webp";
+
 
 const OffRoadPage = () => {
   const videoCards = [

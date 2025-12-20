@@ -10,7 +10,7 @@ const Perception = () => {
       <section className="px-4 md:px-16 mt-8">
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
           <img
-            src="/images/research/perception/Perception.webp"
+            src="/images/research/precption"
             alt="Perception Banner"
             className="w-full h-full object-cover"
           />

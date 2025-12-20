@@ -1,5 +1,5 @@
 import React from "react";
-import VideoGrid from "../components/VideoGrid";
+
 import {perceptionVideos} from "../data/perceptionVideos"
 
 const Perception = () => {
@@ -10,7 +10,7 @@ const Perception = () => {
       <section className="px-4 md:px-16 mt-8">
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
           <img
-            src="/images/research/precption/preception.webp"
+            src="/images/research/perception/Perception.webp"
             alt="Perception Banner"
             className="w-full h-full object-cover"
           />
@@ -27,11 +27,48 @@ const Perception = () => {
         </div>
       </section>
 
-      {/* Responsive spacing */}
+      {/* Space */}
       <section className="h-10 sm:h-14 md:h-20 lg:h-24" />
 
-      {/* Videos */}
-      <VideoGrid videos={perceptionVideos} />
+      {/* Thumbnails Section */}
+      <section className="px-6 md:px-16 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div>
+            <img
+              src="/images/Blogs/Blog-1.webp"
+              alt="Perception Demo"
+              className="w-full h-[220px] object-cover rounded-lg"
+            />
+            <h3 className="mt-3 font-semibold">
+              Environmental Understanding
+            </h3>
+          </div>
+
+          <div>
+            <img
+              src="/images/Blogs/Blog-1.webp"
+              alt="Perception Demo"
+              className="w-full h-[220px] object-cover rounded-lg"
+            />
+            <h3 className="mt-3 font-semibold">
+              Camera-Based Reasoning
+            </h3>
+          </div>
+
+          <div>
+            <img
+              src="/images/Blogs/Blog-1.webp"
+              alt="Perception Demo"
+              className="w-full h-[220px] object-cover rounded-lg"
+            />
+            <h3 className="mt-3 font-semibold">
+              Real-Time Perception
+            </h3>
+          </div>
+
+        </div>
+      </section>
 
     </div>
   );

@@ -144,11 +144,12 @@ export default function Footer() {
               Off Road
             </Link>
             <Link
-              to="/research/mapping"
-              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
-            >
-              Mapping and Localization
-            </Link>
+  to="/research/mapping-localization"
+  className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+>
+  Mapping and Localization
+</Link>
+
             <Link
               to="/research/motion-planning"
               className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"

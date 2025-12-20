@@ -1,7 +1,7 @@
 import React from "react";
 
 /* ================= PUBLIC IMAGE PATHS ================= */
-const bannerImage = "../../public/images/research/onroad/Onroad.webp";
+const bannerImage = "/images/research/onroad/Onroad.webp";
 const thumbnail = "/images/Blogs/Blog-1.webp";
 
 const videoCards = [
@@ -48,15 +48,32 @@ const Onroad = () => {
 
       {/* ================= HERO ================= */}
       <section className="px-3 sm:px-4 md:px-16 mt-6 md:mt-8">
-        <div className="relative w-full rounded-xl overflow-hidden min-h-[260px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
+        <div className="
+          relative
+          w-full
+          rounded-xl
+          overflow-hidden
+          min-h-[260px]
+          sm:min-h-[320px]
+          md:min-h-[380px]
+          lg:min-h-[420px]
+        ">
+          {/* ✅ FIXED HERO IMAGE */}
           <img
             src={bannerImage}
             alt="On Road Banner"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="
+              absolute inset-0
+              w-full h-full
+              object-cover
+              object-center md:object-top
+            "
           />
 
+          {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
 
+          {/* Content */}
           <div className="relative z-10 h-full flex flex-col justify-center px-4 sm:px-6 md:px-12 text-white">
             <h1 className="max-w-[520px] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
               On Road
@@ -72,10 +89,11 @@ const Onroad = () => {
 
       {/* ================= INTRO ================= */}
       <section className="px-6 md:px-16 py-12">
-        <p className="max-w-6xl text-base sm:text-lg md:text-2xl text-gray-600 leading-relaxed">
-          These demonstrations showcase on-road autonomous driving systems that
-          integrate perception, planning, and decision making to operate safely
-          and efficiently in structured traffic environments.
+        <p className="max-w-6xl text-base sm:text-lg md:text-2xl text-[#686868] leading-relaxed">
+          These demonstrations highlight our autonomous driving technology (i)
+          enabling navigation through unstructured environments, with complex
+          road conditions, and (ii) effectively negotiating stochastic, complex,
+          and adversarial traffic-dynamics.
         </p>
       </section>
 
@@ -87,7 +105,6 @@ const Onroad = () => {
               key={card.id}
               className="group cursor-pointer transition duration-300 ease-out"
             >
-              {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200 group-hover:shadow-lg transition">
                 <img
                   src={thumbnail}
@@ -95,7 +112,7 @@ const Onroad = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                 />
 
-                {/* 🔴 YOUTUBE PLAY BUTTON */}
+                {/* 🔴 YouTube Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-12 bg-red-600 rounded-xl flex items-center justify-center">
                     <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1" />
@@ -103,9 +120,7 @@ const Onroad = () => {
                 </div>
               </div>
 
-              {/* Text */}
               <div className="mt-4">
-                {/* ✅ PROFESSIONAL TEXT HOVER */}
                 <h3 className="font-bold text-lg leading-tight text-gray-900 transition-colors hover:text-gray-700">
                   {card.title}
                 </h3>

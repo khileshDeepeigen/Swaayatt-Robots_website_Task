@@ -1,12 +1,10 @@
 import React from "react";
-import VideoGrid from "../components/VideoGrid";
-import { mappingLocalizationVideos } from "../data/mappingLocalizationVideos";
 
 const MappingLocalization = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
-      {/* --- Hero Section --- */}
+      {/* ================= HERO ================= */}
       <section className="px-4 md:px-16 mt-8">
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
 
@@ -24,22 +22,41 @@ const MappingLocalization = () => {
             </h1>
 
             <p className="max-w-[521px] text-base md:text-[20px] leading-relaxed opacity-95">
-              High-precision mapping and real-time localization built for dynamic, unpredictable environments.
+              High-precision mapping and real-time localization built for dynamic,
+              unpredictable environments.
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* --- Intro Text --- */}
-      <section className="px-6 md:px-16 py-12">
-        <p className="max-w-[1497px] text-lg md:text-[32px] leading-snug md:leading-[32px] tracking-[-0.64px] font-medium text-[#686868]">
-          These videos demonstrate high-precision mapping and real-time localization across diverse and dynamic settings.
-        </p>
-      </section>
+      {/* ================= SPACING ================= */}
+      <section className="h-10 sm:h-14 md:h-20" />
 
-      {/* --- Video Grid --- */}
-      <VideoGrid videos={mappingLocalizationVideos} />
+      {/* ================= CARDS ================= */}
+      <section className="px-6 md:px-16 pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {[
+            "High-Definition Map Generation",
+            "Real-Time Localization",
+            "Sensor Fusion Mapping",
+            "SLAM in Dynamic Environments",
+            "Robust Localization in GPS-Denied Areas",
+          ].map((title, index) => (
+            <div key={index}>
+              <img
+                src="/images/Blogs/Blog-1.webp"
+                alt={title}
+                className="w-full h-[220px] object-cover rounded-lg"
+              />
+              <h3 className="mt-3 font-semibold text-[#1A212F]">
+                {title}
+              </h3>
+            </div>
+          ))}
+
+        </div>
+      </section>
 
     </div>
   );

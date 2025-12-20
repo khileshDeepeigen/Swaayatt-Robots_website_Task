@@ -5,27 +5,74 @@ const Offroad = () => {
     <div className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="px-4 md:px-16 mt-8">
-        <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
-
+      <section className="px-3 sm:px-4 md:px-16 mt-6 md:mt-8">
+        <div
+          className="
+            relative
+            w-full
+            rounded-xl
+            overflow-hidden
+            min-h-[260px]
+            sm:min-h-[320px]
+            md:min-h-[380px]
+            lg:min-h-[420px]
+          "
+        >
+          {/* Background Image */}
           <img
             src="/images/research/offroad/Offroad.webp"
             alt="Off Road Banner"
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/30" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
 
-          <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-12 text-white">
-            <h1 className="max-w-[521px] text-4xl md:text-6xl font-bold mb-4">
+          {/* Content */}
+          <div
+            className="
+              relative
+              z-10
+              h-full
+              flex
+              flex-col
+              justify-center
+              px-4
+              sm:px-6
+              md:px-12
+              text-white
+            "
+          >
+            <h1
+              className="
+                max-w-[520px]
+                text-3xl
+                sm:text-4xl
+                md:text-5xl
+                lg:text-6xl
+                font-bold
+                leading-tight
+                mb-3
+                sm:mb-4
+              "
+            >
               Off Road
             </h1>
-            <p className="max-w-[521px] text-base md:text-[20px] leading-relaxed opacity-95">
+
+            <p
+              className="
+                max-w-[520px]
+                text-sm
+                sm:text-base
+                md:text-lg
+                leading-relaxed
+                opacity-95
+              "
+            >
               Revolutionizing off-road autonomy across unseen, adversarial,
               and unpredictable terrains.
             </p>
           </div>
-
         </div>
       </section>
 
@@ -47,7 +94,7 @@ const Offroad = () => {
               <img
                 src="/images/Blogs/Blog-1.webp"
                 alt={title}
-                className="w-full h-[220px] object-cover rounded-lg"
+                className="w-full h-[200px] sm:h-[220px] object-cover rounded-lg"
               />
               <h3 className="mt-3 font-semibold text-[#1A212F]">
                 {title}

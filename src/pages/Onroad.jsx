@@ -1,68 +1,68 @@
 import React from "react";
 
+/* ================= PUBLIC IMAGE PATHS ================= */
+const bannerImage = "../../public/images/research/onroad/Onroad.webp";
+const thumbnail = "/images/Blogs/Blog-1.webp";
+
+const videoCards = [
+  {
+    id: 1,
+    title: "Urban Traffic Navigation",
+    description:
+      "Autonomous navigation strategies for dense urban traffic with complex interactions.",
+    date: "2023-10-28",
+  },
+  {
+    id: 2,
+    title: "Highway Driving Autonomy",
+    description:
+      "Robust motion planning and control for safe and efficient highway driving.",
+    date: "2023-10-28",
+  },
+  {
+    id: 3,
+    title: "Lane-Level Planning",
+    description:
+      "Precise lane-level planning for smooth and predictable on-road autonomy.",
+    date: "2023-10-28",
+  },
+  {
+    id: 4,
+    title: "Traffic Interaction Reasoning",
+    description:
+      "Reasoning about multi-agent interactions in complex on-road traffic scenarios.",
+    date: "2023-10-28",
+  },
+  {
+    id: 5,
+    title: "Safe Decision Making at Intersections",
+    description:
+      "Decision-making frameworks ensuring safety and compliance at intersections.",
+    date: "2023-10-28",
+  },
+];
+
 const Onroad = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
-      {/* ================= RESPONSIVE HERO ================= */}
+      {/* ================= HERO ================= */}
       <section className="px-3 sm:px-4 md:px-16 mt-6 md:mt-8">
-        <div
-          className="
-            relative
-            w-full
-            rounded-xl
-            overflow-hidden
-            min-h-[260px]
-            sm:min-h-[320px]
-            md:min-h-[380px]
-            lg:min-h-[420px]
-          "
-        >
-          {/* Background Image */}
+        <div className="relative w-full rounded-xl overflow-hidden min-h-[260px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
           <img
-            src="/images/research/onroad/onroad.webp"
+            src={bannerImage}
             alt="On Road Banner"
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
 
-          {/* Content */}
-          <div className="
-            relative
-            z-10
-            h-full
-            flex
-            flex-col
-            justify-center
-            px-4
-            sm:px-6
-            md:px-12
-            text-white
-          ">
-            <h1 className="
-              max-w-[520px]
-              text-3xl
-              sm:text-4xl
-              md:text-5xl
-              lg:text-6xl
-              font-bold
-              leading-tight
-              mb-3
-              sm:mb-4
-            ">
+          <div className="relative z-10 h-full flex flex-col justify-center px-4 sm:px-6 md:px-12 text-white">
+            <h1 className="max-w-[520px] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
               On Road
             </h1>
 
-            <p className="
-              max-w-[520px]
-              text-sm
-              sm:text-base
-              md:text-lg
-              leading-relaxed
-              opacity-95
-            ">
+            <p className="max-w-[520px] text-sm sm:text-base md:text-lg opacity-95">
               Advancing safe, efficient, and intelligent autonomy for structured
               on-road environments.
             </p>
@@ -70,32 +70,56 @@ const Onroad = () => {
         </div>
       </section>
 
-      {/* ================= SPACING ================= */}
-      <section className="h-10 sm:h-14 md:h-20" />
+      {/* ================= INTRO ================= */}
+      <section className="px-6 md:px-16 py-12">
+        <p className="max-w-6xl text-base sm:text-lg md:text-2xl text-gray-600 leading-relaxed">
+          These demonstrations showcase on-road autonomous driving systems that
+          integrate perception, planning, and decision making to operate safely
+          and efficiently in structured traffic environments.
+        </p>
+      </section>
 
-      {/* ================= CARDS ================= */}
+      {/* ================= VIDEO CARDS ================= */}
       <section className="px-6 md:px-16 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {videoCards.map((card) => (
+            <div
+              key={card.id}
+              className="group cursor-pointer transition duration-300 ease-out"
+            >
+              {/* Thumbnail */}
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200 group-hover:shadow-lg transition">
+                <img
+                  src={thumbnail}
+                  alt={card.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                />
 
-          {[
-            "Urban Traffic Navigation",
-            "Highway Driving Autonomy",
-            "Lane-Level Planning",
-            "Traffic Interaction Reasoning",
-            "Safe Decision Making at Intersections",
-          ].map((title, index) => (
-            <div key={index}>
-              <img
-                src="/images/Blogs/Blog-1.webp"
-                alt={title}
-                className="w-full h-[200px] sm:h-[220px] object-cover rounded-lg"
-              />
-              <h3 className="mt-3 font-semibold text-[#1A212F]">
-                {title}
-              </h3>
+                {/* 🔴 YOUTUBE PLAY BUTTON */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-12 bg-red-600 rounded-xl flex items-center justify-center">
+                    <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="mt-4">
+                {/* ✅ PROFESSIONAL TEXT HOVER */}
+                <h3 className="font-bold text-lg leading-tight text-gray-900 transition-colors hover:text-gray-700">
+                  {card.title}
+                </h3>
+
+                <p className="text-sm text-gray-500 mt-3 line-clamp-3">
+                  {card.description}
+                </p>
+
+                <p className="text-xs text-gray-400 mt-4 font-mono">
+                  {card.date}
+                </p>
+              </div>
             </div>
           ))}
-
         </div>
       </section>
 

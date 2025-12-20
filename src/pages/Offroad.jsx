@@ -2,7 +2,7 @@ import React from "react";
 
 /* ================= PUBLIC IMAGE PATHS ================= */
 const Offroad = "/images/research/offroad/Offroad.webp";
-const thumbnail = "/images/Blogs/Blogs.webp";
+const thumbnail = "../../public/images/Blogs/Blog-1.webp";
 
 const OffRoadPage = () => {
   const videoCards = [

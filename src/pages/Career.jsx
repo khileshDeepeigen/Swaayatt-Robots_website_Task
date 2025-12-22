@@ -5,92 +5,33 @@ import head from "/images/career/head.png";
 import frame from "/images/career/frame.jpg";
 
 export default function Career() {
-  /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("Full Time");
 
-  /* ================= DUMMY DATA (API READY) ================= */
- const jobsData = [
-  // ===== FULL TIME (5) =====
-  {
-    id: 1,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Full Time",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 2,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Full Time",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 3,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Full Time",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 4,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Full Time",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 5,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Full Time",
-    experience: "2 – 3 year",
-  },
+  const jobsData = [
+    // 5 Full Time
+    ...Array.from({ length: 5 }, (_, i) => ({
+      id: `ft-${i}`,
+      title: "Full Stack Developer",
+      location: "Bhopal, Madhya Pradesh",
+      type: "Full Time",
+      experience: "2 – 3 year",
+    })),
 
-  // ===== INTERNSHIP (5) =====
-  {
-    id: 6,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Internship",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 7,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Internship",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 8,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Internship",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 9,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Internship",
-    experience: "2 – 3 year",
-  },
-  {
-    id: 10,
-    title: "Full Stack Developer",
-    location: "Bhopal, Madhya Pradesh",
-    type: "Internship",
-    experience: "2 – 3 year",
-  },
-];
-
+    // 5 Internship
+    ...Array.from({ length: 5 }, (_, i) => ({
+      id: `in-${i}`,
+      title: "Full Stack Developer",
+      location: "Bhopal, Madhya Pradesh",
+      type: "Internship",
+      experience: "2 – 3 year",
+    })),
+  ];
 
   return (
     <main className="w-full">
 
       {/* ================= HERO ================= */}
-      <section className="w-full py-8">
+      <section className="w-full py-6 sm:py-8">
         <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
           <div className="relative rounded-2xl overflow-hidden">
 
@@ -102,24 +43,34 @@ export default function Career() {
 
             <div className="absolute inset-0 bg-[#6b4e2e] opacity-20 mix-blend-overlay" />
 
-            <div className="absolute bottom-0 left-0 right-0 bg-black/60 py-4 sm:py-5 md:py-6">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 sm:px-10 text-white gap-4">
+            <div className="absolute bottom-0 left-0 right-0 bg-black/60 py-3 sm:py-5 md:py-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 sm:px-10 text-white gap-3 sm:gap-4">
 
                 <div>
                   <p className="font-rethink text-[20px] tracking-[-0.02em] opacity-90 mb-1">
                     Careers @ Swaayatt Robots
                   </p>
 
-                  <p className="font-rethink text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px] tracking-[-0.02em] max-w-[600px] opacity-90">
-                    Join the Journey
-                  </p>
+                  <p className="
+  font-rethink
+  text-[32px]
+  sm:text-[40px]
+  md:text-[50px]
+  lg:text-[60px]
+  tracking-[-0.02em]
+  max-w-[600px]
+  opacity-90
+">
+  Join the Journey
+</p>
+
 
                   <p className="font-rethink text-[20px] sm:text-[24px] md:text-[30px] lg:text-[38px] tracking-[-0.02em] max-w-[517px] opacity-90">
                     Build Something Great With Us
                   </p>
                 </div>
 
-                <div className="bg-white/20 backdrop-blur-md px-5 py-3 rounded-xl text-sm sm:text-base font-medium border border-white/10 hover:bg-white/30 hover:scale-[1.03] transition cursor-pointer">
+                <div className="bg-white/20 backdrop-blur-md px-5 py-3 rounded-xl text-sm sm:text-base font-medium border border-white/10 hover:bg-white/30 transition">
                   Machine Learning Engineer
                 </div>
 
@@ -131,16 +82,14 @@ export default function Career() {
       </section>
 
       {/* ================= MISSION ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-10 text-center">
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-8 sm:py-10 text-center">
         <p className="font-rethink text-[18px] sm:text-[22px] md:text-[26px] lg:text-[33px] tracking-[-0.01em] text-gray-700 max-w-[1350px] mx-auto">
-          <span className="text-blue-600">Our mission</span> is to revolutionize
-          the future of transportation and contribute to the advancement of
-          autonomous systems on a global scale.
+          <span className="text-blue-600">Our mission</span> is to revolutionize the future of transportation and contribute to the advancement of autonomous systems on a global scale. By becoming part of the Swaayatt's team, you will be surrounded by passionate individuals who are dedicated to pushing the boundaries of technology and reshaping the world of autonomy.
         </p>
       </section>
 
       {/* ================= IMAGE + TEXT ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-12 sm:pb-20">
         <div className="relative rounded-2xl overflow-hidden">
 
           <img
@@ -152,36 +101,65 @@ export default function Career() {
           <div className="absolute inset-0 bg-[#6b4e2e] opacity-20 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/50 to-transparent" />
 
-          <div className="absolute inset-0 flex items-center justify-end">
-            <div className="max-w-xl px-6 sm:px-10 lg:px-16 text-white text-right">
+          <div className="absolute inset-0 flex items-end sm:items-center justify-center sm:justify-end pb-6 sm:pb-0">
+            <div className="max-w-xl px-4 sm:px-10 lg:px-16 text-white text-center sm:text-right">
 
               <h2 className="font-rethink font-bold text-[24px] sm:text-[28px] md:text-[32px] lg:text-[38px] tracking-[-0.02em] mb-4">
                 Innovation That Matters
               </h2>
 
-              <p className="font-rethink text-[14px] sm:text-[16px] md:text-[18px] leading-[140%] tracking-[-0.02em] text-justify max-w-[520px]">
-                At Swaayatt Robots, we have been at the forefront of developing
-                India's first Autonomous Driving technology since 2016.
-              </p>
+            <p
+  className="
+    font-rethink
+    text-[14px]
+    sm:text-[16px]
+    md:text-[18px]
+    leading-[140%]
+    tracking-[-0.02em]
+    text-left
+    max-w-[520px]
+  "
+>
+  <span className="block mb-4">
+    At Swaayatt Robots, we have been at the forefront of developing India's first
+    Autonomous Driving technology since 2016.
+  </span>
+
+  <span className="block mb-4">
+    Join our innovative team and embark on a journey to work on cutting-edge
+    research in the field of autonomous driving and artificial intelligence.
+  </span>
+
+  <span className="block mb-4">
+    At Swaayatt, you'll have access to continuous learning opportunities and the
+    latest advancements in tools and technologies related to autonomous driving
+    and AI.
+  </span>
+
+  <span className="block">
+    We take pride in being recognized as the first company in the world to enable
+    autonomous driving in some of the most challenging and stochastic
+    environments, such as India.
+  </span>
+</p>
+
 
             </div>
           </div>
+
         </div>
       </section>
 
       {/* ================= WE ARE HIRING ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-12 sm:py-20">
 
-        {/* Header */}
-        <div className="text-center max-w-5xl mx-auto mb-12">
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-12">
           <h2 className="font-rethink font-bold text-[24px] sm:text-[30px] md:text-[34px] lg:text-[38px] tracking-[-0.02em] text-[#1A212F] mb-4">
             We Are Hiring | Join Us
           </h2>
 
           <p className="font-rethink text-[16px] sm:text-[18px] md:text-[20px] tracking-[-0.02em] text-[#5D5D5D] max-w-[1081px] mx-auto mb-6">
-            Swaayatt Robots is looking for passionate minds ready to shape the
-            future of autonomous driving and AI. If you’re eager to make real
-            impact in cutting-edge technology, this is where your journey begins.
+            Swaayatt Robots is looking for passionate minds ready to shape the future of autonomous driving and AI. Join a team pushing the limits of innovation, where every idea drives progress and every project breaks new ground. If you’re eager to make real impact in cutting-edge technology, this is where your journey begins.
           </p>
 
           <p className="font-rethink text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] tracking-[-0.02em] text-[#1A212F]">
@@ -193,7 +171,7 @@ export default function Career() {
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-10 sm:mb-12">
           <div className="flex border rounded-full p-1">
             {["Full Time", "Internship"].map((tab) => (
               <button
@@ -202,7 +180,7 @@ export default function Career() {
                 className={`px-6 py-2 rounded-full text-sm font-medium transition ${
                   activeTab === tab
                     ? "bg-blue-600 text-white"
-                    : "text-gray-600 hover:text-black"
+                    : "text-gray-600"
                 }`}
               >
                 {tab}
@@ -228,7 +206,7 @@ export default function Career() {
                     </span>
                   </h3>
 
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 mt-2">
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-6 text-sm text-gray-500 mt-2">
                     <span className="flex items-center gap-2">
                       <MapPin size={16} /> {job.location}
                     </span>
@@ -241,7 +219,7 @@ export default function Career() {
                   </div>
                 </div>
 
-                <button className="self-start sm:self-center bg-blue-50 text-blue-600 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-100 transition">
+                <button className="w-full sm:w-auto bg-blue-50 text-blue-600 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-100 transition">
                   Apply to this role
                 </button>
               </div>

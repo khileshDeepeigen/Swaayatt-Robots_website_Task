@@ -12,7 +12,8 @@ import Onroad from "./pages/Onroad";
 import MappingLocalization from "./pages/MappingLocalization";
 import MotionPlanning from "./pages/MotionPlanning";
 import Perception from "./pages/Perception";
-import Career from "./pages/Career"; // ✅ ADD THIS
+import Career from "./pages/Career";
+import Media from "./pages/Media"; // ✅ ADD MEDIA PAGE
 
 export default function App() {
   return (
@@ -21,11 +22,14 @@ export default function App() {
       <ScrollToTop />
 
       <Routes>
+        {/* MAIN PAGES */}
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/career" element={<Career />} /> {/* ✅ CAREER PAGE */}
+        <Route path="/career" element={<Career />} />
+        <Route path="/media" element={<Media />} /> {/* ✅ MEDIA PAGE */}
 
+        {/* RESEARCH ROUTES */}
         <Route path="/research" element={<Research />}>
           <Route path="off-road" element={<Offroad />} />
           <Route path="on-road" element={<Onroad />} />

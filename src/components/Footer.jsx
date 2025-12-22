@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Phone, Mail, Linkedin, Facebook } from "lucide-react";
+import image from "/images/Swaayatt/Swaayatt.png"
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-4">
               <img
-  src="/images/Swaayatt/Swaayatt.png"
+  src={image}
   alt="Swaayatt Robots"
   className="w-14 h-14 min-w-[56px] min-h-[56px] object-contain block"
 />

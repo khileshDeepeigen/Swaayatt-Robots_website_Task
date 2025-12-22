@@ -1,11 +1,10 @@
 import React from "react";
 
 /* ================= PUBLIC IMAGE PATHS ================= */
-const head = "/images/research/precption/preception.webp";
+const head = "/images/research/precption/preception3.png";
 const thumbnail = "/images/Blogs/Blog-1.webp";
 
-
-const OffRoadPage = () => {
+const Perception = () => {
   const videoCards = [
     {
       id: 1,
@@ -51,15 +50,21 @@ const OffRoadPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
+
       {/* ================= HERO ================= */}
       <section className="px-4 md:px-16 mt-8">
         <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
+          {/* IMAGE */}
           <img
             src={head}
             alt="Perception"
-            className="w-full h-full object-cover opacity-60"
+            className="absolute inset-0 w-full h-full object-cover"
           />
 
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-black/30" />
+
+          {/* TEXT (UNCHANGED) */}
           <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 text-white">
             <h1
               className="
@@ -76,7 +81,7 @@ const OffRoadPage = () => {
               Perception
             </h1>
 
-            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2 text-white">
+            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2">
               These videos demonstrate robust environmental understanding and
               implicit reasoning through cameras.
             </p>
@@ -139,8 +144,9 @@ const OffRoadPage = () => {
           ))}
         </div>
       </section>
+
     </div>
   );
 };
 
-export default OffRoadPage;
+export default Perception;

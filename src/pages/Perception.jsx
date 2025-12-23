@@ -1,70 +1,22 @@
 import React from "react";
+import offroadVideos from "../data/onroadVideo";
 
-/* ================= PUBLIC IMAGE PATHS ================= */
-const head = "/images/research/precption/preception3.png";
-const thumbnail = "/images/Blogs/Blog-1.webp";
+/* ================= HERO IMAGE (PUBLIC PATH) ================= */
+const heroImage = "/images/research/onroad/Onroad.webp";
 
-const Perception = () => {
-  const videoCards = [
-    {
-      id: 1,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 2,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 3,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 4,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 5,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-  ];
-
+const PreceptionPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="px-4 md:px-16 mt-8">
+      <section className="px-4 md:px-16 mt-8 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
         <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
-          {/* IMAGE */}
           <img
-            src={head}
-            alt="Perception"
-            className="absolute inset-0 w-full h-full object-cover"
+            src={heroImage}
+            alt="Perception autonomous driving"
+            className="w-full h-full object-cover opacity-80"
           />
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* TEXT (UNCHANGED) */}
           <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 text-white">
             <h1
               className="
@@ -89,10 +41,18 @@ const Perception = () => {
         </div>
       </section>
 
+      {/* ================= OPTIONAL INTRO SPACER ================= */}
+      <section className="px-6 md:px-16 pb-6 md:pb-10">
+        <p className="max-w-3xl text-gray-600 text-base md:text-lg">
+          These demonstrations highlight perception systems enabling autonomous
+          vehicles to understand complex environments using cameras and sensors.
+        </p>
+      </section>
+
       {/* ================= CARDS ================= */}
-      <section className="px-6 md:px-16 mt-8 sm:mt-12 md:mt-16 pb-20">
+      <section className="px-6 md:px-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {videoCards.map((card) => (
+          {offroadVideos.map((card) => (
             <div
               key={card.id}
               className="group cursor-pointer transition duration-300 ease-out"
@@ -100,7 +60,7 @@ const Perception = () => {
               {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
                 <img
-                  src={thumbnail}
+                  src={card.thumbnail}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
@@ -144,9 +104,8 @@ const Perception = () => {
           ))}
         </div>
       </section>
-
     </div>
   );
 };
 
-export default Perception;
+export default PreceptionPage;

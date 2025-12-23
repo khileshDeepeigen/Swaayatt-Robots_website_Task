@@ -1,62 +1,19 @@
 import React from "react";
+import offroadVideos from "../data/motionPlanningVideos";
 
-/* ================= PUBLIC IMAGE PATHS ================= */
-const head = "/images/research/motion-planning/motion.webp";
-const thumbnail = "/images/Blogs/Blog-1.webp";
+/* ================= HERO IMAGE (PUBLIC PATH) ================= */
+const heroImage = "../../public/images/research/motion-planning/motion.webp";
 
-
-const OffRoadPage = () => {
-  const videoCards = [
-    {
-      id: 1,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 2,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 3,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 4,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-    {
-      id: 5,
-      title:
-        "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
-      description:
-        "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
-      date: "2023-10-28",
-    },
-  ];
-
+const OnRoadPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
+
       {/* ================= HERO ================= */}
       <section className="px-4 md:px-16 mt-8">
         <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
           <img
-            src={head}
-            alt="Autonomous mapping"
+            src={heroImage}
+            alt="Off-road autonomous driving"
             className="w-full h-full object-cover opacity-80"
           />
 
@@ -76,8 +33,8 @@ const OffRoadPage = () => {
               Motion Planning and Decision Making
             </h1>
 
-            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2 text-white">
-             Reinforcement-driven motion planning and robust decision strategies for real-world autonomous mobility.
+            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2">
+              Reinforcement-driven motion planning and robust decision strategies for real-world autonomous mobility.
             </p>
           </div>
         </div>
@@ -86,26 +43,28 @@ const OffRoadPage = () => {
       {/* ================= INTRO ================= */}
       <section className="px-6 md:px-16 py-12">
         <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-6xl">
-          These videos demonstrate advanced motion planning and adaptive decision-making in stochastic dynamic traffic, employing reinforcement learning and robust control strategies.
+         These videos demonstrate advanced motion planning and adaptive decision-making in stochastic dynamic traffic, employing reinforcement learning and robust control strategies.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
       <section className="px-6 md:px-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {videoCards.map((card) => (
+          {offroadVideos.map((card) => (
             <div
               key={card.id}
               className="group cursor-pointer transition duration-300 ease-out"
             >
+              {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
                 <img
-                  src={thumbnail}
+                  src={card.thumbnail}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
               </div>
 
+              {/* Text */}
               <div className="mt-4 max-w-[519px]">
                 <h3
                   className="
@@ -147,4 +106,4 @@ const OffRoadPage = () => {
   );
 };
 
-export default OffRoadPage;
+export default OnRoadPage;

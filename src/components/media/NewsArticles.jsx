@@ -11,13 +11,13 @@ export default function NewsAndArticles() {
     {
       id: 2,
       image: "/images/media/news-articles/article-2.webp",
-      logo: "/images/media/news-articles/source-logo.webp",
+      logo: "/images/media/news-articles/logo-2.png",
       title: "Bhopal Entrepreneur Builds L-5 Autonomous Driving System In India",
     },
     {
       id: 3,
-      image: "/images/media/news-articles/article-2.webp", // repeated image is OK
-      logo: "/images/media/news-articles/source-logo.webp",
+      image: "/images/media/news-articles/article-2.webp",
+      logo: "/images/media/news-articles/logo-2.png",
       title: "India’s Push Toward Fully Autonomous Driving Technology",
     },
   ];
@@ -58,14 +58,30 @@ export default function NewsAndArticles() {
             {/* GRADIENT OVERLAY */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-            {/* CONTENT ON IMAGE */}
+            {/* CONTENT */}
             <div className="absolute bottom-4 left-4 right-4 flex items-end gap-3">
-              {/* SMALL LOGO */}
-              <img
-                src={item.logo}
-                alt="Source logo"
-                className="w-9 h-9 rounded-full bg-white p-1 flex-shrink-0"
-              />
+              
+              {/* LOGO FIX (PROFESSIONAL BADGE) */}
+              <div
+                className="
+                  w-10 h-10
+                  rounded-full
+                  bg-white
+                  flex
+                  items-center
+                  justify-center
+                  flex-shrink-0
+                "
+              >
+                <img
+                  src={item.logo}
+                  alt="Source logo"
+                  className="
+                    w-6 h-6
+                    object-contain
+                  "
+                />
+              </div>
 
               {/* TEXT */}
               <p

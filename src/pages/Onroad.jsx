@@ -6,15 +6,15 @@ const heroImage = "/images/research/onroad/Onroad.webp";
 
 const OnRoadPage = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <main className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 mt-8">
-        <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
+        <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
             alt="On-road autonomous driving"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-85"
           />
 
           <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
@@ -23,24 +23,17 @@ const OnRoadPage = () => {
                 font-rethink
                 font-medium
                 tracking-[-0.02em]
-                leading-[68px]
-                text-[40px]
-                sm:text-[48px]
-                lg:text-[56px]
+                leading-none
+                text-[36px]
+                sm:text-[44px]
+                md:text-[56px]
+                lg:text-[68px]
               "
             >
               On Road
             </h1>
 
-            <p
-              className="
-                max-w-xl
-                mt-3
-                text-[16px]
-                leading-[24px]
-                opacity-90
-              "
-            >
+            <p className="max-w-xl mt-2 text-[14px] sm:text-[16px] md:text-[18px] opacity-90">
               Revolutionizing Autonomous Driving: Conquering Complex Traffic on
               India’s Unpredictable Roads
             </p>
@@ -49,30 +42,31 @@ const OnRoadPage = () => {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-12">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
         <p
           className="
-            max-w-4xl
-            text-[18px]
+            max-w-5xl
+            text-[16px]
+            sm:text-[18px]
             leading-[28px]
             text-[#4B5563]
           "
         >
           These demonstrations highlight our autonomous driving technology (i)
-          enabling navigation through unstructured environments, with complex
+          enabling navigation through unstructured environments with complex
           road conditions, and (ii) effectively negotiating stochastic, complex,
-          and adversarial traffic-dynamics.
+          and adversarial traffic dynamics.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {onroadVideos.map((card) => (
-            <div key={card.id} className="cursor-pointer">
+            <div key={card.id} className="flex flex-col">
 
-              {/* Thumbnail */}
-              <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
+              {/* THUMBNAIL */}
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200">
                 <img
                   src={card.thumbnail}
                   alt={card.title}
@@ -80,16 +74,14 @@ const OnRoadPage = () => {
                 />
               </div>
 
-              {/* ================= TEXT (NO CLAMP) ================= */}
+              {/* TEXT */}
               <div className="mt-4 max-w-[520px]">
-
-                {/* Title */}
                 <h3
                   className="
                     font-rethink
-                    font-medium
-                    text-[18px]
-                    leading-[22px]
+                    font-bold
+                    text-[20px]
+                    leading-[24px]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
                   "
@@ -97,44 +89,29 @@ const OnRoadPage = () => {
                   {card.title}
                 </h3>
 
-                {/* Description */}
-              <p
-  className="
-    mt-2
-    text-[14px]
-    leading-[20px]
-    tracking-[-0.01em]
-    text-[#6B7280]
-
-    overflow-visible
-    max-h-none
-    line-clamp-none
-    block
-  "
->
-  {card.description}
-</p>
-
-
-                {/* Date */}
                 <p
                   className="
-                    mt-2
-                    text-[12px]
-                    leading-[16px]
-                    text-[#9CA3AF]
-                    font-mono
+                    mt-3
+                    text-[14px]
+                    leading-[20px]
+                    tracking-[-0.02em]
+                    text-[#737373]
                   "
                 >
-                  {card.date}
+                  {card.description}
                 </p>
 
+                <p className="mt-3 text-[12px] text-gray-400 font-mono">
+                  {card.date}
+                </p>
               </div>
+
             </div>
           ))}
         </div>
       </section>
-    </div>
+
+    </main>
   );
 };
 

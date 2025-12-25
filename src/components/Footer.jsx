@@ -5,14 +5,22 @@ import image from "/images/Swaayatt/Swaayatt.png";
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
+
+      {/* ✅ SAME CONTAINER AS HEADER & PAGES */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ================= MAIN GRID ================= */}
-        <div className="grid gap-y-12 gap-x-10 py-12
-                        grid-cols-1
-                        sm:grid-cols-2
-                        lg:grid-cols-4">
-
+        <div
+          className="
+            grid
+            gap-y-12
+            gap-x-10
+            py-12
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+          "
+        >
           {/* ===== BRAND ===== */}
           <div className="space-y-5">
             <div className="flex items-center gap-4">
@@ -43,14 +51,26 @@ export default function Footer() {
                 <Mail className="w-5 h-5" />
               </a>
               <a href="#">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
                 </svg>
               </a>
-              <a href="https://linkedin.com/company/swaayatt-robots" target="_blank">
+              <a
+                href="https://linkedin.com/company/swaayatt-robots"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://facebook.com/swaayattrobots" target="_blank">
+              <a
+                href="https://facebook.com/swaayattrobots"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -73,7 +93,9 @@ export default function Footer() {
 
           {/* ===== COMPANY ===== */}
           <div className="space-y-3">
-            <p className="font-medium text-[#9CA3AF]">Company</p>
+            <p className="font-medium text-[#9CA3AF]">
+              Company
+            </p>
             <Link to="/blogs" className="block text-[14px] text-[#242424] hover:text-black">
               Blogs
             </Link>
@@ -90,7 +112,9 @@ export default function Footer() {
 
           {/* ===== RESEARCH ===== */}
           <div className="space-y-3">
-            <p className="font-medium text-[#9CA3AF]">Research ↗</p>
+            <p className="font-medium text-[#9CA3AF]">
+              Research ↗
+            </p>
             <Link to="/research/on-road" className="block text-[14px] text-[#242424] hover:text-black">
               On Road
             </Link>

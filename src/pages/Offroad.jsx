@@ -6,15 +6,15 @@ const heroImage = "/images/research/offroad/Offroad.webp";
 
 const OffRoadPage = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <main className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 mt-8">
-        <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
+        <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
             alt="Off-road autonomous driving"
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover opacity-85"
           />
 
           <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
@@ -23,36 +23,30 @@ const OffRoadPage = () => {
                 font-rethink
                 font-medium
                 tracking-[-0.02em]
-                text-[40px]
-                sm:text-[48px]
-                lg:text-[56px]
-                leading-[68px]
+                leading-none
+                text-[36px]
+                sm:text-[44px]
+                md:text-[56px]
+                lg:text-[68px]
               "
             >
               Off Road
             </h1>
 
-            <p
-              className="
-                max-w-xl
-                mt-3
-                text-[16px]
-                leading-[24px]
-                opacity-90
-              "
-            >
-              Revolutionizing Autonomous Driving Beyond Structured Roads
+            <p className="max-w-xl mt-2 text-[14px] sm:text-[16px] md:text-[18px] opacity-90">
+              Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial, and Unpredictable Terrains
             </p>
           </div>
         </div>
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-12">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
         <p
           className="
-            max-w-4xl
-            text-[18px]
+            max-w-5xl
+            text-[16px]
+            sm:text-[18px]
             leading-[28px]
             text-[#4B5563]
           "
@@ -63,15 +57,13 @@ const OffRoadPage = () => {
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {offroadVideos.map((card) => (
-            <div
-              key={card.id}
-              className="cursor-pointer"
-            >
-              {/* Thumbnail */}
-              <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
+            <div key={card.id} className="flex flex-col">
+
+              {/* THUMBNAIL */}
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200">
                 <img
                   src={card.thumbnail}
                   alt={card.title}
@@ -79,10 +71,8 @@ const OffRoadPage = () => {
                 />
               </div>
 
-              {/* ================= TEXT ================= */}
+              {/* TEXT */}
               <div className="mt-4 max-w-[520px]">
-
-                {/* Title */}
                 <h3
                   className="
                     font-rethink
@@ -96,7 +86,6 @@ const OffRoadPage = () => {
                   {card.title}
                 </h3>
 
-                {/* Description (NO CLAMP) */}
                 <p
                   className="
                     mt-2
@@ -104,32 +93,22 @@ const OffRoadPage = () => {
                     leading-[20px]
                     tracking-[-0.01em]
                     text-[#6B7280]
-                    overflow-visible
-                    max-h-none
                   "
                 >
                   {card.description}
                 </p>
 
-                {/* Date */}
-                <p
-                  className="
-                    mt-2
-                    text-[12px]
-                    leading-[16px]
-                    text-[#9CA3AF]
-                    font-mono
-                  "
-                >
+                <p className="mt-2 text-[12px] text-[#9CA3AF] font-mono">
                   {card.date}
                 </p>
-
               </div>
+
             </div>
           ))}
         </div>
       </section>
-    </div>
+
+    </main>
   );
 };
 

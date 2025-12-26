@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 const blogs = [
   {
     id: 1,
@@ -6,9 +7,8 @@ const blogs = [
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
-      "Autonomous Driving is undeniably the most formidable AI challenge of this decade. It remains a dynamic focus of active research.",
+      "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
     date: "2023-10-28",
-    videoUrl: "",
   },
   {
     id: 2,
@@ -17,7 +17,6 @@ const blogs = [
     description:
       "Motion and path planning in completely unknown environments is an extremely challenging problem.",
     date: "2023-10-17",
-    videoUrl: "",
   },
   {
     id: 3,
@@ -25,9 +24,8 @@ const blogs = [
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
-      "Autonomous vehicles often have to negotiate not just structured but unstructured environments.",
+      "Autonomous Driving is undeniably the most formidable AI challenge of this decade.",
     date: "2023-10-28",
-    videoUrl: "",
   },
   {
     id: 4,
@@ -35,85 +33,79 @@ const blogs = [
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
-      "An evolving approach to navigation where biological inspirations play a key role.",
+      "Autonomous Driving is undeniably the most formidable AI challenge of this decade.",
     date: "2023-10-28",
-    videoUrl: "",
   },
 ];
+
 export default function Blogs() {
   return (
     <main className="bg-white">
-      {/* ↓ reduced top padding ONLY for mobile */}
-      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 sm:pt-16 pb-16">
 
-        {/* ===== HEADING ===== */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <h1 className="text-[36px] font-semibold text-[#111]">
+      {/* ================= INTRO ================= */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-14">
+        <div className="text-center max-w-[572px] mx-auto">
+          <h1 className="font-rethink font-medium text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px] leading-[1.05] tracking-[-0.02em] text-[#1A212F] mb-4">
             Discover and Learn
           </h1>
-          <p className="mt-3 text-[16px] text-[#6B7280]">
-            Explore in-depth articles on autonomous driving and the challenges
-            of decision-making in unstructured environments
+
+          <p className="font-rethink text-[20px] leading-[1.4] tracking-[-0.02em] text-[#1A212F]/70">
+            Explore in-depth articles on autonomous driving and the challenges of
+            decision-making in unstructured environments
           </p>
         </div>
+      </section>
 
-        {/* ===== BLOG GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* ================= BLOG GRID ================= */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
           {blogs.map((blog) => (
-            <Link key={blog.id} to={`/blogs/${blog.id}`} className="group">
-              <div className="rounded-xl overflow-hidden border border-gray-200 bg-white transition-transform duration-200 hover:-translate-y-[4px]">
+            <Link key={blog.id} to={`/blogs/${blog.id}`} className="block">
+              <div className="bg-white rounded-[20px] overflow-hidden border border-gray-200 transition hover:shadow-sm">
 
-                {/* ===== IMAGE (responsive height) ===== */}
-                <div className="h-[150px] sm:h-[180px] overflow-hidden">
+                {/* IMAGE */}
+                <div className="relative">
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-[220px] sm:h-[240px] object-cover"
                   />
+
+                  {/* WATERMARK */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <img
+                      src="/images/Swaayatt/logo-mark.png"
+                      alt="Swaayatt Robots"
+                      className="w-6 h-6"
+                    />
+                    <span className="text-white text-[12px] font-medium opacity-90">
+                      Swaayatt Robots
+                    </span>
+                  </div>
                 </div>
 
-                {/* ===== CONTENT ===== */}
-                <div className="p-4 flex flex-col justify-between h-[190px]">
+                {/* CONTENT */}
+                <div className="px-5 pt-4 pb-5">
+                  <h3 className="font-rethink font-medium text-[20px] leading-[1.3] tracking-[-0.02em] text-[#3F3F3F] mb-3 line-clamp-2">
+                    {blog.title}
+                  </h3>
 
-                  {/* TEXT */}
-                  <div className="space-y-2">
-                    <h3 className="text-[20px] font-semibold text-[#1A212F] leading-snug line-clamp-2">
-                      {blog.title}
-                    </h3>
+                  <p className="font-rethink text-[14px] leading-[1.5] tracking-[-0.02em] text-[#737373] mb-4 line-clamp-3">
+                    {blog.description}
+                  </p>
 
-                    <p className="text-[16px] text-[#1A212FB2] leading-relaxed line-clamp-3">
-                      {blog.description}
-                    </p>
-                  </div>
-
-                  {/* META + VIDEO */}
-                  <div className="mt-3 flex items-center justify-between">
-                    <p className="text-[12px] text-[#9CA3AF]">
-                      {blog.date}
-                    </p>
-
-                    {blog.videoUrl ? (
-                      <a
-                        href={blog.videoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[12px] text-[#9CA3AF] hover:underline"
-                      >
-                        ▶ Video
-                      </a>
-                    ) : (
-                      <span className="text-[12px] text-[#9CA3AF]">
-                        ▶ Video
-                      </span>
-                    )}
-                  </div>
-
+                  <p className="text-[12px] text-[#9CA3AF] font-mono">
+                    {blog.date}
+                  </p>
                 </div>
+
               </div>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
+
     </main>
   );
 }

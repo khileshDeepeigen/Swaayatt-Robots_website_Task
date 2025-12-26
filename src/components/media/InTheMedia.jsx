@@ -16,8 +16,10 @@ export default function InTheMedia() {
       image: "/images/media/news/n2.webp",
       title:
         "Anand Mahindra praises startup from Bhopal for developing self-driving cars",
+        
+        
       description:
-        "Self-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspiredSelf-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspired",
+        "With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV",
       date: "2023-10-28",
     },
     {
@@ -26,7 +28,7 @@ export default function InTheMedia() {
       title:
         "Self-Driving Vehicle | Meet Sanjeev Sharma, An IITian Who Turned Bolero Into Self-Driving Car",
       description:
-        "With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV",
+        "Self-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspiredSelf-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspired",
       date: "2023-10-28",
     },
     {
@@ -38,29 +40,29 @@ export default function InTheMedia() {
         "Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार",
       date: "2023-10-28",
     },
-     {
+      {
       id: 5,
-      image: "/images/media/news/n1.webp",
+      image: "/images/media/news/n3.webp",
       title:
-        "Driverless Car: बिना ड्राइवर के ही फर्राटे भर रही ये गाड़ी, अब तक 50 हजार Km का ट्रायल रन हुआ कंप्लीट",
+        "Self-Driving Vehicle | Meet Sanjeev Sharma, An IITian Who Turned Bolero Into Self-Driving Car",
       description:
-        "Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार",
+        "Self-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspiredSelf-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspired",
       date: "2023-10-28",
     },
-     {
+    {
       id: 6,
-      image: "/images/media/news/n1.webp",
+      image: "/images/media/news/n2.webp",
       title:
-        "Driverless Car: बिना ड्राइवर के ही फर्राटे भर रही ये गाड़ी, अब तक 50 हजार Km का ट्रायल रन हुआ कंप्लीट",
+        "Anand Mahindra praises startup from Bhopal for developing self-driving cars",
       description:
-        "Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार Driverless Car Trial: यह एक गाड़ी है जिसे चलाने के लिए ड्राइवर की ज़रूरत नहीं पड़ती. शुरुआत में ड्राइवर इसे बस चालू कर के छोड़ दे फिर तो सामने से गाड़ी आए... क्या भारत में भी कभी ड्राइवरलेस कार कार",
+        "With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV With advancements in tech, self-driving cars are creating a buzz across the automobile industry. A startup from Bhopal has amazed people with its Mahindra Bolero SUV",
       date: "2023-10-28",
     },
-     {
+      {
       id: 7,
-      image: "/images/media/news/n1.webp",
+      image: "/images/media/news/n3.webp",
       title:
-        "Driverless Car: बिना ड्राइवर के ही फर्राटे भर रही ये गाड़ी, अब तक 50 हजार Km का ट्रायल रन हुआ कंप्लीट",
+        "Self-Driving Vehicle | Meet Sanjeev Sharma, An IITian Who Turned Bolero Into Self-Driving Car",
       description:
         "Self-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspiredSelf-driving Vehicle: Sanjeev Sharma, an IITian living in Bhopal, has been doing research on self-driving cars for several years. Mr Sharma describes that he was inspired",
       date: "2023-10-28",

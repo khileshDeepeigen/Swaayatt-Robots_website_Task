@@ -28,8 +28,8 @@ export default function Career() {
     <main className="w-full">
 
       {/* ================= HERO ================= */}
-      <section className="py-6 sm:py-8">
-        <div className="max-w-[1440px] mx-auto px-6">
+      <section className="py-6 sm:py-8 mt-8">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="relative rounded-2xl overflow-hidden">
 
             <img
@@ -40,10 +40,10 @@ export default function Career() {
 
             <div className="absolute inset-0 bg-black/55" />
 
+            {/* HERO CONTENT (UNCHANGED) */}
             <div className="absolute bottom-0 left-0 right-0 py-6">
-              <div className="flex flex-col lg:flex-row justify-between gap-6 text-white px-6">
+              <div className="flex justify-between items-end text-white px-6">
 
-                {/* LEFT CONTENT */}
                 <div>
                   <p className="font-rethink text-[18px] opacity-80 mb-2">
                     Careers @ Swaayatt Robots
@@ -58,24 +58,30 @@ export default function Career() {
                   </p>
                 </div>
 
-                {/* RIGHT – NON-INTERACTIVE ROLE CAROUSEL */}
-                <div className="overflow-hidden h-[32px]">
-                  <div className="font-rethink text-[14px] opacity-80 animate-[slideUp_8s_linear_infinite]">
-                    <p>Machine Learning Engineer</p>
-                    <p>Autonomous Systems Engineer</p>
-                    <p>Robotics Software Engineer</p>
-                    <p>AI Research Scientist</p>
+                {/* STATIC ICON (UNCHANGED) */}
+                <div className="hidden sm:block text-center text-white pointer-events-none">
+                  <p className="text-[14px] opacity-40 mb-2">
+                    Machine Learning Engineer
+                  </p>
+
+                  <div className="px-6 py-3 rounded-xl bg-white/25 backdrop-blur-md border border-white/30 text-[15px] font-medium">
+                    Machine Learning Engineer
                   </div>
+
+                  <p className="text-[14px] opacity-40 mt-2">
+                    Machine Learning Engineer
+                  </p>
                 </div>
 
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ================= INNOVATION ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 pb-20">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="relative rounded-2xl overflow-hidden">
 
           <img
@@ -116,7 +122,7 @@ export default function Career() {
       </section>
 
       {/* ================= WE ARE HIRING ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 py-20">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20">
 
         <div className="text-center max-w-5xl mx-auto mb-12">
           <h2 className="font-rethink text-[38px] tracking-[-0.02em] text-[#1A212F] mb-4">
@@ -129,7 +135,10 @@ export default function Career() {
 
           <p className="font-rethink text-[20px] text-[#1A212F]">
             Send your resume to{" "}
-            <a href="mailto:career@swaayatt.com" className="underline text-blue-600">
+            <a
+              href="mailto:career@swaayatt.com"
+              className="underline text-blue-600"
+            >
               career@swaayatt.com
             </a>
           </p>
@@ -142,7 +151,7 @@ export default function Career() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-full text-sm transition ${
+                className={`px-6 py-2 rounded-full text-sm ${
                   activeTab === tab
                     ? "bg-blue-600 text-white"
                     : "text-gray-600"

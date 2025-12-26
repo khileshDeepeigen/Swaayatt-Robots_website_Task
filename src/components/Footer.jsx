@@ -4,9 +4,10 @@ import image from "/images/Swaayatt/Swaayatt.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200">
+    // ✅ background made slightly grey
+    <footer className="bg-[#F3F4F6] border-t border-gray-200">
 
-      {/* ✅ SAME CONTAINER AS HEADER & PAGES */}
+      {/* SAME CONTAINER AS HEADER & PAGES */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ================= MAIN GRID ================= */}
@@ -14,11 +15,11 @@ export default function Footer() {
           className="
             grid
             gap-y-12
-            gap-x-10
+            gap-x-8
             py-12
             grid-cols-1
             sm:grid-cols-2
-            lg:grid-cols-4
+            lg:grid-cols-[1.2fr_1fr_0.7fr_0.7fr]
           "
         >
           {/* ===== BRAND ===== */}
@@ -92,7 +93,7 @@ export default function Footer() {
           </div>
 
           {/* ===== COMPANY ===== */}
-          <div className="space-y-3">
+          <div className="space-y-3 justify-self-end">
             <p className="font-medium text-[#9CA3AF]">
               Company
             </p>
@@ -111,7 +112,7 @@ export default function Footer() {
           </div>
 
           {/* ===== RESEARCH ===== */}
-          <div className="space-y-3">
+          <div className="space-y-3 justify-self-end">
             <p className="font-medium text-[#9CA3AF]">
               Research ↗
             </p>

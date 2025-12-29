@@ -6,10 +6,10 @@ const heroImage = "/images/research/offroad/Offroad.webp";
 
 const OffRoadPage = () => {
   return (
-    <main className="min-h-screen bg-white text-gray-800">
+    <main className="min-h-screen bg-white text-gray-800 pt-[112.38px]">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
@@ -69,18 +69,14 @@ const OffRoadPage = () => {
 
               {/* ================= THUMBNAIL ================= */}
               <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 group cursor-pointer">
-
-                {/* IMAGE */}
                 <img
                   src={card.thumbnail}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
 
-                {/* DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
 
-                {/* YOUTUBE RECTANGLE PLAY ICON */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-[72px] h-[48px] bg-[#FF0000] rounded-xl flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110">
                     <svg
@@ -91,7 +87,6 @@ const OffRoadPage = () => {
                     </svg>
                   </div>
                 </div>
-
               </div>
 
               {/* ================= TEXT ================= */}
@@ -138,3 +133,4 @@ const OffRoadPage = () => {
 };
 
 export default OffRoadPage;
+  

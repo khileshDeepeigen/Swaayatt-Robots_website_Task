@@ -21,7 +21,7 @@ export default function Footer() {
           "
         >
           {/* ===== BRAND ===== */}
-          <div className="space-y-3">
+          <div className="space-y-3 mt-4 sm:mt-6">
             <div className="flex items-center gap-4">
               <img
                 src={image}
@@ -38,7 +38,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-[15px] text-[#3A3A3A]">
+            <p className="text-[15px] text-[#3A3A3A] whitespace-nowrap">
               Autonomous Driving and ADAS
             </p>
 
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* ===== ADDRESS ===== */}
-          <div className="space-y-2 text-[#3A3A3A] justify-self-start text-left lg:-ml-[27rem]">
+          <div className="space-y-2 text-[#3A3A3A] justify-self-start text-left lg:-ml-[27rem] mt-4 sm:mt-6">
             <p className="text-[15px] font-medium">
               Swaayatt Robots Pvt. Ltd.
             </p>

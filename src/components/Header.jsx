@@ -11,10 +11,11 @@ const researchCollage = [
   "/images/research/collage/img-5.webp",
 ];
 
-export default function Header() {
-  const [open, setOpen] = useState(false);        // desktop research
+export default function Header({ variant = "default" }) {
+  const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileResearchOpen, setMobileResearchOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -27,10 +28,32 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  return (
-    <header className="sticky top-0 z-[1000] bg-white border-b">
+  // header solid on scroll (home only)
+  useEffect(() => {
+    if (variant !== "home") return;
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [variant]);
 
-      {/* DESKTOP HEADER */}
+  const isHome = variant === "home";
+  const isDark = variant === "dark";
+
+  return (
+    <header
+      className={`
+        fixed top-0 left-0 w-full z-[1000] transition-all duration-300
+        ${
+          isHome
+            ? scrolled
+              ? "bg-black/90 backdrop-blur border-b border-white/10"
+              : "bg-transparent"
+            : isDark
+            ? "bg-black border-b border-white/10"
+            : "bg-white border-b"
+        }
+      `}
+    >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="h-[80px] flex items-center justify-between">
 
@@ -41,16 +64,23 @@ export default function Header() {
               className="w-12 h-12 object-contain"
               alt="Swaayatt Robots"
             />
-            <div className="font-semibold text-[16px] leading-tight text-[#1C1C1C]">
+            <div
+              className={`font-semibold text-[16px] leading-tight ${
+                isHome || isDark ? "text-white" : "text-[#1C1C1C]"
+              }`}
+            >
               <div>SWAAYATT</div>
               <div>ROBOTS</div>
             </div>
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden lg:flex items-center gap-10 text-[18px] font-semibold text-[#1C1C1C]">
-
-            {/* RESEARCH DROPDOWN (DESKTOP UNCHANGED) */}
+          <nav
+            className={`hidden lg:flex items-center gap-10 text-[18px] font-semibold ${
+              isHome || isDark ? "text-white" : "text-[#1C1C1C]"
+            }`}
+          >
+            {/* RESEARCH */}
             <div ref={ref} className="relative">
               <button
                 onClick={() => setOpen((p) => !p)}
@@ -60,31 +90,36 @@ export default function Header() {
               </button>
 
               {open && (
-                <div className="absolute left-[-180px] top-[60px] w-[720px] h-[300px] bg-white border border-[#E5E7EB] rounded-[16px] shadow-2xl z-[2000] flex overflow-hidden">
+                <div className="absolute left-[-180px] top-[60px] w-[720px] h-[300px] bg-white rounded-[16px] shadow-2xl flex overflow-hidden">
                   {/* LEFT COLLAGE */}
-                  <div className="relative w-[420px] h-full overflow-hidden rounded-l-[16px]">
+                  <div className="relative w-[420px] h-full overflow-hidden">
                     <div className="grid grid-cols-5 h-full">
                       {researchCollage.map((img, i) => (
-                        <img key={i} src={img} alt="" className="w-full h-full object-cover" />
+                        <img
+                          key={i}
+                          src={img}
+                          className="w-full h-full object-cover"
+                          alt=""
+                        />
                       ))}
                     </div>
-                    <div className="absolute inset-0 bg-black/55" />
-                    <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <h3 className="text-[36px] font-semibold mb-2">Research</h3>
-                      <p className="text-[16px] opacity-90 max-w-[340px]">
-                        Dive into the challenges and breakthroughs of autonomous driving.
+                    <div className="absolute inset-0 bg-black/60" />
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <h3 className="text-[36px] font-semibold">Research</h3>
+                      <p className="text-sm opacity-90 max-w-[320px]">
+                        Autonomous driving research & breakthroughs.
                       </p>
                     </div>
                   </div>
 
                   {/* RIGHT MENU */}
-                  <div className="flex-1 px-7 py-7 flex flex-col justify-center gap-1.5">
+                  <div className="flex-1 px-7 py-7 flex flex-col justify-center">
                     {researchMenu.map((item) => (
                       <Link
                         key={item.label}
                         to={item.path}
                         onClick={() => setOpen(false)}
-                        className="px-4 py-[10px] rounded-[8px] text-[16px] hover:bg-[#E9F0FF]"
+                        className="px-4 py-2 rounded hover:bg-gray-100"
                       >
                         {item.label}
                       </Link>
@@ -100,41 +135,36 @@ export default function Header() {
             <Link to="/contact">Contact</Link>
           </nav>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           <button className="lg:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileOpen ? (
+              <X size={26} className={isHome || isDark ? "text-white" : ""} />
+            ) : (
+              <Menu size={26} className={isHome || isDark ? "text-white" : ""} />
+            )}
           </button>
         </div>
       </div>
 
-      {/* ================= MOBILE NAV ================= */}
+      {/* MOBILE NAV */}
       {mobileOpen && (
-        <div className="lg:hidden border-t bg-white">
-          <div className="max-w-[1440px] mx-auto px-6 py-4 space-y-4 text-[16px]">
-
-            {/* MOBILE RESEARCH (CONTROLLED, SAME FEEL) */}
+        <div className="lg:hidden bg-black text-white border-t border-white/10">
+          <div className="px-6 py-4 space-y-4">
             <button
               onClick={() => setMobileResearchOpen(!mobileResearchOpen)}
-              className="w-full flex items-center justify-between font-medium"
+              className="w-full flex justify-between"
             >
-              Research
-              <ChevronDown
-                size={18}
-                className={`transition ${mobileResearchOpen ? "rotate-180" : ""}`}
-              />
+              Research <ChevronDown />
             </button>
 
             {mobileResearchOpen && (
-              <div className="pl-4 space-y-2">
+              <div className="pl-4 space-y-2 text-white/80">
                 {researchMenu.map((item) => (
                   <Link
                     key={item.label}
                     to={item.path}
-                    onClick={() => {
-                      setMobileOpen(false);
-                      setMobileResearchOpen(false);
-                    }}
-                    className="block text-gray-700"
+                    onClick={() => setMobileOpen(false)}
+                    className="block"
                   >
                     {item.label}
                   </Link>
@@ -142,10 +172,10 @@ export default function Header() {
               </div>
             )}
 
-            <Link to="/media" onClick={() => setMobileOpen(false)}>Media</Link>
-            <Link to="/blogs" onClick={() => setMobileOpen(false)}>Blogs</Link>
-            <Link to="/career" onClick={() => setMobileOpen(false)}>Career</Link>
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
+            <Link to="/media">Media</Link>
+            <Link to="/blogs">Blogs</Link>
+            <Link to="/career">Career</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       )}

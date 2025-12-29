@@ -27,56 +27,76 @@ export default function Career() {
   return (
     <main className="w-full">
 
-      {/* ================= HERO ================= */}
-      <section className="py-6 sm:py-8 mt-8">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="relative rounded-2xl overflow-hidden">
+{/* ================= HERO ================= */}
+<section className="py-6 sm:py-8 mt-8">
+  <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
 
-            <img
-              src={head}
-              alt="Careers at Swaayatt Robots"
-              className="w-full h-[240px] sm:h-[320px] md:h-[420px] lg:h-[480px] object-cover"
-            />
+    <div className="relative rounded-2xl overflow-hidden">
 
-            <div className="absolute inset-0 bg-black/55" />
+      {/* IMAGE — UNCHANGED */}
+      <img
+        src={head}
+        alt="Careers at Swaayatt Robots"
+        className="w-full h-[240px] sm:h-[320px] md:h-[420px] lg:h-[480px] object-cover"
+      />
 
-            <div className="absolute bottom-0 left-0 right-0 py-6">
-              <div className="flex justify-between items-end text-white px-6">
+      {/* ✅ BLACK STRIP — TOUCHES BOTTOM & COVERS ALL TEXT */}
+      <div
+        className="
+          absolute inset-x-0 bottom-0
+          h-[180px] sm:h-[200px] lg:h-[220px]
+          bg-black/55
+          pointer-events-none
+        "
+      />
 
-                <div>
-                  <p className="font-rethink text-[18px] opacity-80 mb-2">
-                    Careers @ Swaayatt Robots
-                  </p>
+      {/* CONTENT */}
+      <div className="absolute bottom-0 left-0 right-0 pb-6 sm:pb-8 lg:pb-10">
+        <div className="flex justify-between items-end text-white px-4 sm:px-8 lg:px-12">
 
-                  <h1 className="font-rethink text-[42px] sm:text-[52px] lg:text-[60px] tracking-[-0.02em] mb-2">
-                    Join the Journey
-                  </h1>
+          {/* LEFT TEXT */}
+          <div className="max-w-[520px]">
+            <p className="font-rethink text-[18px] opacity-80 mb-2">
+              Careers @ Swaayatt Robots
+            </p>
 
-                  <p className="font-rethink text-[20px] sm:text-[24px] opacity-85 max-w-[520px]">
-                    Build Something Great With Us
-                  </p>
-                </div>
+            <h1 className="font-rethink text-[42px] sm:text-[52px] lg:text-[60px] tracking-[-0.02em] mb-2">
+              Join the Journey
+            </h1>
 
-                <div className="hidden sm:block text-center text-white pointer-events-none">
-                  <p className="text-[14px] opacity-40 mb-2">
-                    Machine Learning Engineer
-                  </p>
+            <p className="font-rethink text-[20px] sm:text-[24px] opacity-85">
+              Build Something Great With Us
+            </p>
+          </div>
 
-                  <div className="px-6 py-3 rounded-xl bg-white/25 backdrop-blur-md border border-white/30 text-[15px] font-medium">
-                    Machine Learning Engineer
-                  </div>
+          {/* RIGHT CARD */}
+          <div className="hidden sm:flex flex-col items-center text-center pointer-events-none shrink-0">
+            <p className="text-[14px] opacity-40 mb-2">
+              Machine Learning Engineer
+            </p>
 
-                  <p className="text-[14px] opacity-40 mt-2">
-                    Machine Learning Engineer
-                  </p>
-                </div>
-
-              </div>
+            <div className="px-6 py-3 rounded-xl bg-white/25 backdrop-blur-md border border-white/30 text-[15px] font-medium whitespace-nowrap">
+              Machine Learning Engineer
             </div>
 
+            <p className="text-[14px] opacity-40 mt-2">
+              Machine Learning Engineer
+            </p>
           </div>
+
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
 
       {/* ================= MISSION TEXT (ADDED ONLY) ================= */}
 {/* ================= MISSION TEXT ================= */}
@@ -276,8 +296,12 @@ export default function Career() {
                       {job.type}
                     </span>
 
-                   <span className="flex items-center gap-2">
-  <Briefcase size={16} className="[&>line]:hidden" />
+           <span className="flex items-center gap-2 text-gray-600">
+  <Briefcase
+    size={16}
+    strokeWidth={1.5}
+    className="[&>path:nth-child(2)]:hidden"
+  />
   {job.experience}
 </span>
 

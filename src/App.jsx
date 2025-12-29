@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -19,10 +19,16 @@ import Perception from "./pages/Perception";
 import MappingLocalization from "./pages/MappingLocalization";
 import MotionPlanning from "./pages/MotionPlanning";
 
-export default function App() {
+function AppLayout() {
+  const location = useLocation();
+
+  // ✅ ONLY HOME gets "home" variant
+  const headerVariant =
+    location.pathname === "/" ? "home" : "default";
+
   return (
     <>
-      <Header />
+      <Header variant={headerVariant} />
       <ScrollToTop />
 
       <Routes>
@@ -51,4 +57,8 @@ export default function App() {
       <Footer />
     </>
   );
+}
+
+export default function App() {
+  return <AppLayout />;
 }

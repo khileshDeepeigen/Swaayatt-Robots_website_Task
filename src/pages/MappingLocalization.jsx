@@ -6,10 +6,12 @@ const heroImage = "/images/research/mapping/mapping.webp";
 
 const MappingAndLocalization = () => {
   return (
-    <main className="min-h-screen bg-white text-gray-800">
+  <main className="min-h-screen bg-white text-gray-800 dark:bg-black dark:text-white pt-[2.25vw] transition-colors duration-300">
+
+
 
       {/* ================= HERO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-[calc(80px+3.6vh)]">
         <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
@@ -52,6 +54,7 @@ const MappingAndLocalization = () => {
             leading-[1]
             tracking-[-0.02em]
             text-[#686868]
+            dark:text-[#A3A3A3]
           "
         >
           These videos demonstrate high-precision mapping and real-time
@@ -66,19 +69,15 @@ const MappingAndLocalization = () => {
             <div key={card.id} className="flex flex-col">
 
               {/* ================= THUMBNAIL ================= */}
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 group cursor-pointer">
-
-                {/* IMAGE */}
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 dark:bg-[#111] group cursor-pointer">
                 <img
                   src={card.thumbnail}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
 
-                {/* DARK OVERLAY */}
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
 
-                {/* YOUTUBE RECTANGLE PLAY ICON */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-[72px] h-[48px] bg-[#FF0000] rounded-xl flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110">
                     <svg
@@ -89,7 +88,6 @@ const MappingAndLocalization = () => {
                     </svg>
                   </div>
                 </div>
-
               </div>
 
               {/* ================= TEXT ================= */}
@@ -102,6 +100,7 @@ const MappingAndLocalization = () => {
                     leading-[1]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
+                    dark:text-white
                   "
                 >
                   {card.title}
@@ -116,6 +115,7 @@ const MappingAndLocalization = () => {
                     leading-[1]
                     tracking-[-0.02em]
                     text-[#737373]
+                    dark:text-[#A3A3A3]
                   "
                 >
                   {card.description}

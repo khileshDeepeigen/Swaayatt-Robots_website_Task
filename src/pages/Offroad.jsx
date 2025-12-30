@@ -10,18 +10,24 @@ const OffRoadPage = () => {
   return (
     <main className="min-h-screen bg-white text-gray-800 dark:bg-black dark:text-white pt-[112.38px] transition-colors duration-300">
 
-      {/* ================= HERO ================= */}
-    <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16">
+  <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16">
   <div className="relative h-[240px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
-    <img
-      src={heroImage}
-      alt="Off-road autonomous driving"
-      className="w-full h-full object-cover opacity-85"
-    />
 
-    <div className="absolute inset-0 flex flex-col justify-center text-white px-4 sm:px-6 lg:px-16">
-      
-      {/* TITLE */}
+    {/* IMAGE */}
+   <img
+  src={heroImage}
+  alt="Off-road autonomous driving"
+  className="w-full h-full object-cover"
+  style={{ filter: "brightness(0.95)" }}
+/>
+
+
+    {/* DARK OVERLAY (NOW ABOVE IMAGE) */}
+    <div className="absolute inset-0 bg-black/40 z-10" />
+
+    {/* CONTENT (ABOVE OVERLAY) */}
+    <div className="absolute inset-0 z-20 flex flex-col justify-center text-white px-4 sm:px-6 lg:px-16">
+
       <h1
         className="
           font-rethink font-medium tracking-[-0.02em]
@@ -35,7 +41,6 @@ const OffRoadPage = () => {
         Off Road
       </h1>
 
-      {/* DESCRIPTION */}
       <p
         className="
           max-w-[90%] sm:max-w-xl
@@ -50,9 +55,11 @@ const OffRoadPage = () => {
         Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial,
         and Unpredictable Terrains
       </p>
+
     </div>
   </div>
 </section>
+
 
 
       {/* ================= INTRO ================= */}

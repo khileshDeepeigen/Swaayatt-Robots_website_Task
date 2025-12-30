@@ -102,21 +102,39 @@ export default function Career() {
       <div className="absolute inset-x-0 bottom-0 hidden md:block h-[180px] sm:h-[200px] lg:h-[317px] bg-black/55 pointer-events-none" />
 
       {/* CONTENT */}
-      <div className="absolute bottom-0 px-4 sm:px-20 md:px-20 lg:px-2  lg:w-[80vw] h-auto min-h-[30vh] left-0 right-0 pb-10 sm:pb-8 lg:pb-10">
+      <div className="absolute bottom-0 p-6  sm:px-20 md:px-20 lg:px-2  lg:w-[80vw] h-auto min-h-[30vh] left-0 right-0 pb-10 sm:pb-8 lg:pb-10">
         <div className="flex flex-col lg:flex-row justify-between items-end lg:items-center text-white px-2 sm:px-4 lg:px-12">
           {/* LEFT TEXT */}
-          <div className="max-w-full sm:px-10 sm:mt-0 mt-[80vh] lg:max-w-[520px] mb-8 lg:mb-0">
-            <p className="font-rethink text-base  sm:text-lg mb-2">
-              Careers @ Swaayatt Robots
-            </p>
-            <h1 className="font-rethink font-bold sm:text-4xl text-2xl sm:text-5xl lg:text-6xl tracking-[-0.02em] mb-2">
-              Join the Journey
-            </h1>
-          <p className="font-rethink text-md sm:text-[20px] lg:text-[24px] xl:text-[3px] 2xl:text-[30px]">
-  Build Something Great With Us
-</p>
+        <div
+  className="
+    max-w-full
+    sm:px-10
+    sm:mt-0
+    mt-[80vh]
+    lg:max-w-[520px]
+    mb-8
+    lg:mb-0
 
-          </div>
+    text-center
+    lg:text-left
+
+    mx-auto
+    lg:mx-0
+  "
+>
+  <p className="font-rethink text-base sm:text-lg mb-2">
+    Careers @ Swaayatt Robots
+  </p>
+
+  <h1 className="font-rethink font-bold text-3xl sm:text-5xl lg:text-6xl tracking-[-0.02em] mb-2">
+    Join the Journey
+  </h1>
+
+  <p className="font-rethink text-md sm:text-[20px] lg:text-[24px] 2xl:text-[30px]">
+    Build Something Great With Us
+  </p>
+</div>
+
 
 
 
@@ -167,7 +185,7 @@ export default function Career() {
 
 
 
-      <section className="sm:max-w-[100vw] mx-auto px-4 sm:px-10 lg:px-16 py-20">
+      <section className="sm:max-w-[100vw] mx-auto px-4 sm:px-10 lg:px-16 sm:py-20 py-10">
         <p className={`
           sm:max-w-[70vw] max-w-[100vw]  mx-auto text-start sm:text-center font-rethink font-normal
           text-xl sm:text-[33px]   leading-[1.3] tracking-[-0.01em]

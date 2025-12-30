@@ -11,27 +11,49 @@ const OffRoadPage = () => {
     <main className="min-h-screen bg-white text-gray-800 dark:bg-black dark:text-white pt-[112.38px] transition-colors duration-300">
 
       {/* ================= HERO ================= */}
-      <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16">
-        <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
-          <img
-            src={heroImage}
-            alt="Off-road autonomous driving"
-            className="w-full h-full object-cover opacity-85"
-          />
+    <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16">
+  <div className="relative h-[240px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
+    <img
+      src={heroImage}
+      alt="Off-road autonomous driving"
+      className="w-full h-full object-cover opacity-85"
+    />
 
-          <div className="absolute inset-0 flex flex-col justify-center text-white px-4 sm:px-6 lg:px-16">
-            {/* ⬇️ TEXT UNCHANGED */}
-            <h1 className="font-rethink font-medium tracking-[-0.02em] leading-none text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px]">
-              Off Road
-            </h1>
+    <div className="absolute inset-0 flex flex-col justify-center text-white px-4 sm:px-6 lg:px-16">
+      
+      {/* TITLE */}
+      <h1
+        className="
+          font-rethink font-medium tracking-[-0.02em]
+          leading-tight sm:leading-none
+          text-[28px]
+          sm:text-[44px]
+          md:text-[56px]
+          lg:text-[68px]
+        "
+      >
+        Off Road
+      </h1>
 
-            <p className="max-w-xl mt-2 text-[14px] sm:text-[16px] md:text-[18px] opacity-90">
-              Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial,
-              and Unpredictable Terrains
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* DESCRIPTION */}
+      <p
+        className="
+          max-w-[90%] sm:max-w-xl
+          mt-2 sm:mt-3
+          text-[13px]
+          sm:text-[16px]
+          md:text-[18px]
+          leading-relaxed sm:leading-normal
+          opacity-90
+        "
+      >
+        Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial,
+        and Unpredictable Terrains
+      </p>
+    </div>
+  </div>
+</section>
+
 
       {/* ================= INTRO ================= */}
       <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16 py-12">

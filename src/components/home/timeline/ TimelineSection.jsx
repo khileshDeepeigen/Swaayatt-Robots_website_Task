@@ -10,15 +10,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function TimelineSection() {
   const sectionRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useLayoutEffect(() => {
     const st = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=3000",
-      scrub: true,
+      end: "+=3500",
+      scrub: 1.2, // smoother
       pin: true,
+      onUpdate: (self) => {
+        setProgress(self.progress); // single source of truth
+      },
     });
 
     return () => st.kill();
@@ -30,19 +33,13 @@ export default function TimelineSection() {
       className="relative h-screen bg-black overflow-hidden"
     >
       {/* ROAD */}
-      <div className="absolute inset-0 z-10">
-        <RoadTimeline activeIndex={activeIndex} />
-      </div>
+      <RoadTimeline progress={progress} />
 
       {/* IMAGES */}
-      <div className="absolute inset-0 z-30 pointer-events-none">
-        <BlogNodes onActiveChange={setActiveIndex} />
-      </div>
+      <BlogNodes progress={progress} />
 
       {/* GRID */}
-      <div className="absolute inset-0 z-50 pointer-events-none">
-        <GridBackground />
-      </div>
+      <GridBackground />
     </section>
   );
 }

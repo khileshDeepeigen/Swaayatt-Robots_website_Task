@@ -6,11 +6,11 @@ export default function GridBackground() {
       {/* ================= VERTICAL LINES ================= */}
 
       {/* LEFT VERTICAL */}
-   <div
+<div
   className="
     absolute
-    top-0
-    bottom-0
+    top-[5%]
+    bottom-[12%]
     left-[27%]
     w-px
     bg-white/15
@@ -19,12 +19,13 @@ export default function GridBackground() {
 />
 
 
+
       {/* RIGHT VERTICAL */}
-    <div
+<div
   className="
     absolute
-    top-0
-    bottom-0
+    top-[5%]
+    bottom-[12%]
     left-1/2
     -translate-x-1/2
     w-px
@@ -34,14 +35,15 @@ export default function GridBackground() {
 />
 
 
+
       {/* ================= HORIZONTAL LINES ================= */}
 
-      {/* TOP HORIZONTAL (for upper videos) */}
-     <div
+<div
   className="
     absolute
-    left-0 right-0
-    top-[19%]
+    left-0
+    top-[17%]
+    w-[82%]
     h-px
     bg-white/15
     pointer-events-none
@@ -49,17 +51,20 @@ export default function GridBackground() {
 />
 
 
-      {/* BOTTOM HORIZONTAL (for lower videos) */}
-      <div
-        className="
-          absolute
-          left-0 right-0
-          top-[42%]
-          h-px
-          bg-white/15
-          pointer-events-none
-        "
-      />
+
+<div
+  className="
+    absolute
+    left-0
+    top-[42%]
+    w-[82%]
+    h-px
+    bg-white/15
+    pointer-events-none
+  "
+/>
+
+
     </>
   );
 }

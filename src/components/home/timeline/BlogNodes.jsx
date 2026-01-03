@@ -1,97 +1,143 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-/* ================= DIVIDERS DATA ================= */
+/* ================= DATA ================= */
 
-const DIVIDERS = [
-  { left: "20%", date: "20 Aug 2025" },
-  { left: "35%", date: "20 Jul 2025" },
-  { left: "65%", date: "08 Jul 2025" },
-  { left: "82%", date: "18 Mar 2025" },
+const images = [
+  "/images/Blogs/Homepage-1.webp",
+  "/images/Blogs/Homepage-1.webp",
+  "/images/Blogs/Blog-1.webp",
+  "/images/media/news/n1.webp",
+  "/images/Blogs/Homepage-1.webp",
 ];
 
-export default function RoadTimeline({ progress }) {
-  const carRef = useRef(null);
-  const wrapperRef = useRef(null);
+const CENTER_TEXT =
+  "Introducing Bidirectional Negotiation to\n" +
+  "the World of Autonomous Driving:\n" +
+  "Biologically Inspired Model";
 
-  useEffect(() => {
-    if (!carRef.current || !wrapperRef.current) return;
+/* ================= POSITIONS ================= */
 
-    const width = wrapperRef.current.offsetWidth;
-    const startX = width * 0.05;
-    const endX = width * 0.78;
+const SLOTS = [
+  { x: "-42vw", scale: 0.42, opacity: 0.18, z: 5 },
+  { x: "-24vw", scale: 0.65, opacity: 0.38, z: 10 },
+  { x: "0vw", scale: 1.1, opacity: 1, z: 30 },
+  { x: "24vw", scale: 0.65, opacity: 0.38, z: 10 },
+  { x: "39vw", scale: 0.32, opacity: 0.16, z: 4 },
+];
 
-    gsap.to(carRef.current, {
-      x: gsap.utils.interpolate(startX, endX, progress),
-      duration: 0.4,
-      ease: "power3.out",
+/* ================= COMPONENT ================= */
+
+export default function BlogNodes({ progress }) {
+  const refs = useRef([]);
+  const [centerIndex, setCenterIndex] = useState(null);
+
+  useLayoutEffect(() => {
+    const total = images.length;
+    const CENTER_INDEX = Math.floor(total / 2); // 2
+
+    // :fire: Safe + continuous progress
+    const safeProgress = progress ?? 0;
+
+    // :fire: Convert progress → infinite index
+    const indexProgress = CENTER_INDEX + safeProgress * total;
+
+    refs.current.forEach((el, i) => {
+      if (!el) return;
+
+      // :fire: Circular offset
+      let offset = i - indexProgress;
+
+      // Normalize offset to circular range
+      if (offset > total / 2) offset -= total;
+      if (offset < -total / 2) offset += total;
+
+      const slotIndex = wrapIndex(
+        Math.round(offset + CENTER_INDEX),
+        total
+      );
+
+      const slot = SLOTS[slotIndex];
+      const isCenter = slotIndex === CENTER_INDEX;
+
+      gsap.to(el, {
+        x: slot.x,
+        scale: slot.scale,
+        opacity: slot.opacity,
+        zIndex: slot.z,
+        duration: 0.45,
+        ease: "power3.out",
+      });
+
+      if (isCenter) setCenterIndex(i);
     });
   }, [progress]);
 
   return (
-    <div
-      ref={wrapperRef}
-      className="absolute bottom-[14vh] left-0 right-0 h-[28vh] z-40 pointer-events-none"
-    >
-      {/* BLACK BACKGROUND BELOW ROAD */}
-      <div className="absolute bottom-0 left-0 w-full h-[55%] bg-black z-0" />
-
-      {/* ROAD */}
-      <img
-        src="/images/roadtimeline/Rectangle 9.png"
-        className="absolute inset-0 w-full h-full object-contain z-10"
-        alt=""
-      />
-
-      {/* DASH */}
+    <div className="absolute inset-0 z-10 pointer-events-none">
+      {/* ===== GREEN REFLECTION ===== */}
       <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[6px] z-20"
+        className="absolute inset-0 blur-[110px]"
         style={{
-          backgroundImage:
-            "repeating-linear-gradient(to right, #fff 0 30px, transparent 30px 60px)",
+          background: `
+            radial-gradient(
+              ellipse at 50% 54%,
+              rgba(47, 52, 37, 0.9) 0%,
+              rgba(47, 52, 37, 0.65) 18%,
+              rgba(47, 52, 37, 0.35) 30%,
+              rgba(0, 0, 0, 0.85) 45%,
+              rgba(0, 0, 0, 1) 100%
+            )
+          `,
         }}
       />
 
-      {/* ================= DIVIDERS + DATES ================= */}
-      {DIVIDERS.map((item, i) => (
+      {/* ================= IMAGES ================= */}
+      {images.map((src, i) => (
         <div
           key={i}
-          className="absolute top-1/2 z-30"
-          style={{ left: item.left }}
+          ref={(el) => (refs.current[i] = el)}
+          className="absolute top-[18%] left-1/2 -translate-x-1/2"
         >
-          {/* SLANTED LINE */}
-          <div
-            className="
-              w-px
-              h-[80px]
-              bg-white/60
-              rotate-[20deg]
-              origin-top
-            "
-          />
+          <div className="relative w-[22vw] aspect-video overflow-visible">
+            <div
+              className={`
+                relative z-20
+                ${
+                  centerIndex === i
+                    ? "rounded-none overflow-visible"
+                    : "rounded-lg overflow-hidden"
+                }
+              `}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/25" />
 
-          {/* DATE */}
-          <div
-            className="
-              mt-2
-              -translate-x-1/2
-              text-xs
-              text-white/80
-              whitespace-nowrap
-            "
-          >
-            {item.date}
+              {/* YOUTUBE PLAY BUTTON */}
+              <div className="absolute inset-0 z-30 flex items-center justify-center">
+                <div className="w-[3.8vw] h-[3.8vw] min-w-[44px] min-h-[44px] max-w-[60px] max-h-[60px] rounded-full bg-[#FF0000] flex items-center justify-center shadow-xl">
+                  <div className="ml-[3px] w-0 h-0 border-t-[10px] border-b-[10px] border-l-[16px] border-t-transparent border-b-transparent border-l-white" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ))}
 
-      {/* CAR */}
-      <img
-        ref={carRef}
-        src="/images/Swaayatt/Bolero.png"
-        className="absolute top-1/2 -translate-y-1/2 w-[22vw] max-w-[320px] z-40"
-        alt=""
-      />
+      {/* ================= CENTER TEXT ================= */}
+      {centerIndex !== null && (
+        <div className="absolute left-1/2 top-[45%] -translate-x-1/2 z-30">
+          <p className="font-['Chivo_Mono'] text-[18px] leading-[100%] tracking-[-0.02em] text-white max-w-[620px] whitespace-pre-line text-left">
+            {CENTER_TEXT}
+          </p>
+        </div>
+      )}
     </div>
   );
+}
+
+/* ================= UTILS ================= */
+
+function wrapIndex(value, length) {
+  return ((value % length) + length) % length;
 }

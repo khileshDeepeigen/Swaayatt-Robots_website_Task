@@ -3,10 +3,14 @@ import Blogs from "../components/home/Blogs";
 import FourHome from "../components/home/FourHome";
 import HomeHero from "../components/home/HomeHero";
 import SecondHero from "../components/home/SecondHero";
-
-import Media from "../components/home/Media"
+import Media from "../components/home/Media";
 import ThirdHero from "../components/home/ThirdHero";
-import TimelineSection from "../components/home/timeline/ TimelineSection";
+
+import TimelineSection from "../components/home/timeline/TimelineSection";
+import BrandFeaturedOn from "../components/Brandfeature/BrandFeaturedOn";
+import FeaturedImageReveal from "../components/Brandfeature/FeaturedImageReveal";
+
+
 
 export default function Home() {
   return (
@@ -46,6 +50,15 @@ export default function Home() {
 
 <section className="overflow-x-hidden">
 <Media/>
+</section>
+
+
+<section>
+  <BrandFeaturedOn/>
+</section>
+
+<section>
+  <FeaturedImageReveal/>
 </section>
 
 

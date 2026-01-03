@@ -36,7 +36,7 @@ export default function HomeHero() {
           text-center lg:text-left
         "
       >
-        <div className="w-full lg:max-w-[620px] sm:mx-auto  lg:mx-0">
+        <div className="w-full mb-60 lg:max-w-[620px] sm:mx-auto  lg:mx-0">
 
           {/* AUTONOMOUS */}
           <h1

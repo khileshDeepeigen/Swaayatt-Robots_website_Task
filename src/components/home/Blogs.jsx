@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const blogs = [
@@ -40,59 +40,51 @@ const blogs = [
 const Blogs = () => {
   const [index, setIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(4);
-  const [cardWidth, setCardWidth] = useState(25); // percentage
+  const sliderRef = useRef(null);
+  const [cardWidth, setCardWidth] = useState(0); // dynamic pixel width
 
-  // Detect screen size and adjust visible cards
+  // Detect screen size and visible cards
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        // Mobile
-        setVisibleCards(1);
-        setCardWidth(100);
+        setVisibleCards(1); // mobile
       } else if (window.innerWidth < 1024) {
-        // Tablet
-        setVisibleCards(2);
-        setCardWidth(50);
+        setVisibleCards(2); // tablet
       } else {
-        // Desktop
-        setVisibleCards(4);
-        setCardWidth(25);
+        setVisibleCards(4); // desktop
+      }
+
+      // Calculate card width dynamically
+      if (sliderRef.current) {
+        const card = sliderRef.current.querySelector("article");
+        if (card) setCardWidth(card.offsetWidth + parseInt(getComputedStyle(card).marginRight)); // include margin if any
       }
     };
 
-    // Initial call
-    handleResize();
-
-    // Add event listener
+    handleResize(); // initial
     window.addEventListener("resize", handleResize);
-
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleNext = () => {
-    if (index < blogs.length - visibleCards) {
-      setIndex((prev) => prev + 1);
-    }
+    if (index < blogs.length - visibleCards) setIndex((prev) => prev + 1);
   };
 
   const handlePrev = () => {
-    if (index > 0) {
-      setIndex((prev) => prev - 1);
-    }
+    if (index > 0) setIndex((prev) => prev - 1);
   };
 
   return (
-  <main className="min-h-screen bg-gradient-to-br from-[#052f1d] via-[#0a1a12] to-[#0c1210] py-8 sm:py-12 lg:py-16">
+    <main className="min-h-screen bg-gradient-to-br from-[#052f1d] via-[#0a1a12] to-[#0c1210] py-8 sm:py-12 lg:py-16">
       <div className="max-w-[100vw] sm:max-w-[90vw] lg:max-w-[87vw] mx-auto px-4 sm:px-6 lg:px-0">
 
-        {/* HEADER – unchanged */}
+        {/* HEADER */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10">
           <p className="text-3xl sm:text-4xl lg:text-5xl font-[550] text-white">
             Blogs
           </p>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 mt-4 sm:mt-0">
             <button
               onClick={handlePrev}
               disabled={index === 0}
@@ -112,24 +104,15 @@ const Blogs = () => {
         </div>
 
         {/* SLIDER */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden" ref={sliderRef}>
           <div
-            className="flex gap-4 transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${index * 100}%)` }}
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${index * cardWidth}px)` }}
           >
             {blogs.map((post) => (
               <article
                 key={post.id}
-                className="
-                  w-full
-                  sm:w-1/2
-                  lg:w-1/4
-                  flex-shrink-0
-                  h-[500px] lg:h-[720px]
-                  relative overflow-hidden
-                  bg-black border border-white/10
-                  rounded-lg lg:rounded-none
-                "
+                className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 h-[500px] lg:h-[720px] relative overflow-hidden bg-black border border-white/10 rounded-lg mr-2"
               >
                 <img
                   src={post.image}
@@ -149,17 +132,15 @@ const Blogs = () => {
 
         {/* DOTS – mobile/tablet only */}
         <div className="flex justify-center mt-8 lg:hidden">
-          {Array.from({ length: blogs.length - visibleCards + 1 }).map(
-            (_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                className={`w-2 h-2 mx-1 rounded-full ${
-                  i === index ? "bg-white" : "bg-white/30"
-                }`}
-              />
-            )
-          )}
+          {Array.from({ length: blogs.length - visibleCards + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-2 h-2 mx-1 rounded-full ${
+                i === index ? "bg-white" : "bg-white/30"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </main>

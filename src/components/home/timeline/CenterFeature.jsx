@@ -34,18 +34,31 @@ export default function BlogNodes({ progress }) {
 
   useLayoutEffect(() => {
     const total = images.length;
-    const indexProgress = progress * (total - 1);
+    const CENTER_INDEX = Math.floor(total / 2); // 2
+
+    // 🔥 Safe + continuous progress
+    const safeProgress = progress ?? 0;
+
+    // 🔥 Convert progress → infinite index
+    const indexProgress = CENTER_INDEX + safeProgress * total;
 
     refs.current.forEach((el, i) => {
       if (!el) return;
 
-      const offset = i - indexProgress;
-      const slotIndex = Math.round(
-        gsap.utils.clamp(0, total - 1, offset + 2)
+      // 🔥 Circular offset
+      let offset = i - indexProgress;
+
+      // Normalize offset to circular range
+      if (offset > total / 2) offset -= total;
+      if (offset < -total / 2) offset += total;
+
+      const slotIndex = wrapIndex(
+        Math.round(offset + CENTER_INDEX),
+        total
       );
 
       const slot = SLOTS[slotIndex];
-      const isCenter = slotIndex === 2;
+      const isCenter = slotIndex === CENTER_INDEX;
 
       gsap.to(el, {
         x: slot.x,
@@ -62,7 +75,6 @@ export default function BlogNodes({ progress }) {
 
   return (
     <div className="absolute inset-0 z-10 pointer-events-none">
-
       {/* ===== GREEN REFLECTION ===== */}
       <div
         className="absolute inset-0 blur-[110px]"
@@ -88,8 +100,6 @@ export default function BlogNodes({ progress }) {
           className="absolute top-[18%] left-1/2 -translate-x-1/2"
         >
           <div className="relative w-[22vw] aspect-video overflow-visible">
-
-            {/* IMAGE */}
             <div
               className={`
                 relative z-20
@@ -103,37 +113,10 @@ export default function BlogNodes({ progress }) {
               <img src={src} alt="" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black/25" />
 
-              {/* 🔴 YOUTUBE PLAY BUTTON (CENTER OF EACH IMAGE) */}
+              {/* YOUTUBE PLAY BUTTON */}
               <div className="absolute inset-0 z-30 flex items-center justify-center">
-                <div
-                  className="
-                    w-[3.8vw]
-                    h-[3.8vw]
-                    min-w-[44px]
-                    min-h-[44px]
-                    max-w-[60px]
-                    max-h-[60px]
-                    rounded-full
-                    bg-[#FF0000]
-                    flex
-                    items-center
-                    justify-center
-                    shadow-xl
-                  "
-                >
-                  <div
-                    className="
-                      ml-[3px]
-                      w-0
-                      h-0
-                      border-t-[10px]
-                      border-b-[10px]
-                      border-l-[16px]
-                      border-t-transparent
-                      border-b-transparent
-                      border-l-white
-                    "
-                  />
+                <div className="w-[3.8vw] h-[3.8vw] min-w-[44px] min-h-[44px] max-w-[60px] max-h-[60px] rounded-full bg-[#FF0000] flex items-center justify-center shadow-xl">
+                  <div className="ml-[3px] w-0 h-0 border-t-[10px] border-b-[10px] border-l-[16px] border-t-transparent border-b-transparent border-l-white" />
                 </div>
               </div>
             </div>
@@ -144,22 +127,17 @@ export default function BlogNodes({ progress }) {
       {/* ================= CENTER TEXT ================= */}
       {centerIndex !== null && (
         <div className="absolute left-1/2 top-[45%] -translate-x-1/2 z-30">
-          <p
-            className="
-              font-['Chivo_Mono']
-              text-[18px]
-              leading-[100%]
-              tracking-[-0.02em]
-              text-white
-              max-w-[620px]
-              whitespace-pre-line
-              text-left
-            "
-          >
+          <p className="font-['Chivo_Mono'] text-[18px] leading-[100%] tracking-[-0.02em] text-white max-w-[620px] whitespace-pre-line text-left">
             {CENTER_TEXT}
           </p>
         </div>
       )}
     </div>
   );
+}
+
+/* ================= UTILS ================= */
+
+function wrapIndex(value, length) {
+  return ((value % length) + length) % length;
 }

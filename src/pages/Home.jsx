@@ -5,6 +5,8 @@ import HomeHero from "../components/home/HomeHero";
 import SecondHero from "../components/home/SecondHero";
 import ThirdHero from "../components/home/ThirdHero";
 import TimelineSection from "../components/home/timeline/ TimelineSection";
+import BrandFeaturedOn from "../components/BrandFeaturedOn/BrandFeaturedOn";
+import FeaturedImageReveal from "../components/BrandFeaturedOn/FeaturedImageReveal";
 
 export default function Home() {
   return (
@@ -25,24 +27,28 @@ export default function Home() {
       </section>
 
       {/* ================= TIMELINE SECTION ================= */}
-      <section
-        className="
-          relative bg-black z-20
-          -mt-[35vh]
-        "
-      >
+      <section className="relative bg-black z-20 -mt-[35vh]">
         <TimelineSection />
       </section>
 
-<section>
-  <FourHome/>
+      {/* ================= FOUR HOME ================= */}
+      <section className="relative bg-black z-20">
+        <FourHome />
+      </section>
+
+      {/* ================= BLOGS ================= */}
+      <section className="relative bg-black z-20">
+        <Blogs />
+      </section>
+
+      {/* ================= BRAND FEATURED ON ================= */}
+   <section className="relative bg-white z-20">
+  <BrandFeaturedOn />
 </section>
 
-<section>
-  <Blogs/>
+<section className="relative bg-white z-20">
+  <FeaturedImageReveal />
 </section>
-
-
 
     </main>
   );

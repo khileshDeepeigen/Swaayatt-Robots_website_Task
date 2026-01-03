@@ -18,12 +18,14 @@ export default function RoadTimeline({ progress }) {
     if (!carRef.current || !wrapperRef.current) return;
 
     const width = wrapperRef.current.offsetWidth;
-    const startX = width * 0.05;
+    const startX = 0;
     const endX = width * 0.78;
 
+    const safeProgress = gsap.utils.clamp(0, 1, progress ?? 0);
+
     gsap.to(carRef.current, {
-      x: gsap.utils.interpolate(startX, endX, progress),
-      duration: 0.4,
+      x: gsap.utils.interpolate(startX, endX, safeProgress),
+      duration: 0.35,
       ease: "power3.out",
     });
   }, [progress]);
@@ -31,66 +33,126 @@ export default function RoadTimeline({ progress }) {
   return (
     <div
       ref={wrapperRef}
-      className="absolute bottom-[14vh] left-0 right-0 h-[28vh] z-40 pointer-events-none"
+      className="
+        absolute
+        bottom-[14vh]
+        left-0
+        right-0
+        h-[190px]
+        z-40
+        pointer-events-none
+      "
     >
-      {/* BLACK BACKGROUND BELOW ROAD */}
-      <div className="absolute bottom-0 left-0 w-full h-[55%] bg-black z-0" />
+      {/* ================= ROAD ================= */}
+      <div className="absolute top-[-8px] left-0 right-0 h-[115px] z-10 road-wrap">
+        <div className="road-surface" />
 
-      {/* ROAD */}
-      <img
-        src="/images/roadtimeline/Rectangle 9.png"
-        className="absolute inset-0 w-full h-full object-contain z-10"
-        alt=""
-      />
+        {/* CENTER STRIPS */}
+        <div className="road-center">
+          <div className="road-dash" />
+        </div>
+      </div>
 
-      {/* DASH */}
+      {/* BLACK AREA BELOW ROAD */}
       <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[6px] z-20"
+        className="absolute left-0 right-0 bg-black"
         style={{
-          backgroundImage:
-            "repeating-linear-gradient(to right, #fff 0 30px, transparent 30px 60px)",
+          top: "107px",
+          height: "83px",
+          zIndex: 5,
         }}
       />
 
-      {/* ================= DIVIDERS + DATES ================= */}
+      {/* ================= DIVIDERS + DATE ================= */}
       {DIVIDERS.map((item, i) => (
         <div
           key={i}
-          className="absolute top-1/2 z-30"
-          style={{ left: item.left }}
+          style={{
+            position: "absolute",
+            left: item.left,
+            top: 0,
+            zIndex: 20,
+            pointerEvents: "none",
+          }}
         >
-          {/* SLANTED LINE */}
+          {/* TOP ROTATED SEGMENT */}
           <div
-            className="
-              w-px
-              h-[80px]
-              bg-white/60
-              rotate-[20deg]
-              origin-top
-            "
-          />
-
-          {/* DATE */}
-          <div
-            className="
-              mt-2
-              -translate-x-1/2
-              text-xs
-              text-white/80
-              whitespace-nowrap
-            "
+            style={{
+              position: "relative",
+              height: "125px",
+              width: "0.5px",
+              transform: "rotate(25deg)",
+              transformOrigin: "top",
+            }}
           >
-            {item.date}
+            {/* MAIN LINE */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "white",
+              }}
+            />
+
+            {/* JOINT */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-2px",
+                left: "-1px",
+                width: "4px",
+                height: "4px",
+                borderRadius: "50%",
+                background: "white",
+              }}
+            />
+
+            {/* TILTED DOWN LINE */}
+            <div
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: "0px",
+                width: "0.5px",
+                height: "45px",
+                background: "white",
+                transform: "rotate(-24deg)",
+                transformOrigin: "top",
+              }}
+            />
+
+            {/* DATE ONLY */}
+            <div
+              style={{
+                position: "absolute",
+                top: "calc(100% + 44px)",
+                left: "26px",
+                transform: "translateX(-50%) rotate(-24deg)",
+                transformOrigin: "top",
+                fontSize: "12px",
+                color: "rgba(255,255,255,0.7)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {item.date}
+            </div>
           </div>
         </div>
       ))}
 
-      {/* CAR */}
+      {/* ================= CAR ================= */}
       <img
         ref={carRef}
         src="/images/Swaayatt/Bolero.png"
-        className="absolute top-1/2 -translate-y-1/2 w-[22vw] max-w-[320px] z-40"
-        alt=""
+        className="
+          absolute
+          top-[60px]
+          -translate-y-1/2
+          w-[22vw]
+          max-w-[320px]
+          z-40
+        "
+        alt="car"
       />
     </div>
   );

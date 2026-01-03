@@ -40,7 +40,8 @@ export default function SecondHero() {
             className="
               text-white
               text-[40px]
-              text-center
+              
+              text-start
               sm:text-start
               sm:text-[24px]
               md:text-[40px]

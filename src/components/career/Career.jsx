@@ -4,7 +4,7 @@ import { MapPin, Clock, Briefcase } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import team from "/images/career/head.png";
 import "../career/career.css";
-
+import gsap from "gsap";
 
 import frame from "/images/career/head1.png";
 
@@ -24,15 +24,64 @@ export default function Career() {
 //     return texts[idx];
 //   };
 
-
- const texts = [
+const texts = [
   "Machine Learning Engineer",
   "Data Scientist",
   "Full Stack Developer",
-  
+  "AI Engineer",
+  "Software Architect",
+  "Tech Lead",
+   "Machine Learning Engineer",
+  "Data Scientist",
+  "Full Stack Developer",
+  "AI Engineer",
+  "Software Architect",
+  "Tech Lead",
 ];
 
 
+  const itemsRef = useRef([]);
+  const current = useRef(0);
+
+  useEffect(() => {
+    const items = itemsRef.current;
+
+    // Initial positions
+    gsap.set(items, { y: 40, opacity: 0 });
+    gsap.set(items[0], { y: 0, opacity: 1 });
+
+    const timeline = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 0.5,
+    });
+
+    texts.forEach((_, i) => {
+      const next = (i + 1) % texts.length;
+
+      timeline
+        // current -> top (fade)
+        .to(items[i], {
+          y: -90,
+          opacity: 0.3,
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        // next -> center
+        .fromTo(
+          items[next],
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          "<"
+        );
+    });
+
+    return () => timeline.kill();
+  }, []);
 
   // useEffect(() => {
   //   const timer = setInterval(() => {
@@ -87,7 +136,7 @@ export default function Career() {
      <section className="py-6 sm:py-8 mt-8">
   <div className="sm:max-w-[93vw]  max-w-[130vw] mx-auto px-4 sm:px-10 lg:px-16">
 
-
+import gsap from "gsap";
     <div className="relative rounded-2xl mt-20 overflow-hidden">
       <div className="relative">
         <img
@@ -139,35 +188,21 @@ export default function Career() {
 
 
 {/* ///animation */}
+  <div className="relative hidden md:flex items-center justify-center h-20  md:mr-16  overflow-hidden">
+      <div className="relative h-10 w-[300px] bg-white/20 py-8 rounded-md  text-center">
 
-<div className="relative hidden md:flex items-center justify-center">
-  <div className="flex flex-col items-center gap-3">
-
-    {/* TOP */}
-    <div className="h-6 hidden opacity-50 sm:block rotator faded">
-      {texts.map((text, i) => (
-        <span key={i}>{text}</span>
-      ))}
-    </div>
-
-    {/* CENTER CARD */}
-    <div className="rounded-xl bg-white/15 px-6 py-3">
-      <div className="rotator main text-white font-bold">
         {texts.map((text, i) => (
-          <span key={i}>{text}</span>
+          <div
+            key={i}
+            ref={(el) => (itemsRef.current[i] = el)}
+            className="absolute inset-0 mt-4 text-white mb-5 font-bold text-lg"
+          >
+            {text}
+          </div>
         ))}
+
       </div>
     </div>
-
-    {/* BOTTOM */}
-    <div className="h-6 hidden opacity-50 sm:block rotator faded">
-      {texts.map((text, i) => (
-        <span key={i}>{text}</span>
-      ))}
-    </div>
-
-  </div>
-</div>
 
 
 

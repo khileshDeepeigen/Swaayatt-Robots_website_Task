@@ -1,161 +1,175 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Linkedin, Facebook } from "lucide-react";
 import image from "/images/Swaayatt/Swaayatt.png";
-import { useTheme } from "../context/ThemeContext"; // Adjust the import path as needed
+import { useTheme } from "../context/ThemeContext";
 
 export default function Footer() {
   const { isDarkMode } = useTheme();
 
   return (
-    <footer className={`${isDarkMode ? 'bg-black text-gray-300 border-gray-800' : 'bg-[#F3F4F6] text-[#3A3A3A] border-gray-200'} border-t transition-colors duration-300`}>
-      <div className="max-w-[93vw] mx-auto px-6 sm:px-10 lg:px-16">
+    <footer
+  className={`${
+    isDarkMode
+      ? "bg-gradient-to-b from-black to-[#093436] text-gray-300"
+      : "bg-[#F3F4F6] text-[#3A3A3A]"
+  }`}
+>
 
-        {/* ================= MAIN GRID ================= */}
-        <div
-          className="
-            grid
-            gap-y-10
-            gap-x-6
-            lg:gap-x-16
-            py-8
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-[1.2fr_0.05fr_1fr_0.7fr_0.7fr]
-          "
-        >
-          {/* ===== BRAND ===== */}
-          <div className="space-y-3 mt-4 sm:mt-6">
+      <div className="max-w-[90vw] mx-auto px-6 py-14">
+
+        {/* ================= GRID ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+          {/* ===== BRAND + ADDRESS ===== */}
+          <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <img
-                src={image}
-                alt="Swaayatt Robots"
-                className="w-12 h-12 object-contain"
-              />
+              <img src={image} alt="Swaayatt Robots" className="w-12 h-12" />
               <div>
-                <p className={`text-[20px] font-semibold ${isDarkMode ? 'text-white' : 'text-[#111]'}`}>
-                  SWAAYATT
-                </p>
-                <p className={`text-[14px] tracking-[0.25em] ${isDarkMode ? 'text-gray-300' : 'text-[#111]'}`}>
+                <p className={`text-xl font-semibold ${isDarkMode ? 'text-white' : 'text-[#3A3A3A]'}`}>SWAAYATT</p>
+                <p className={`text-sm tracking-[0.3em] ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   ROBOTS
                 </p>
               </div>
             </div>
 
-            <p className={`text-[15px] ${isDarkMode ? 'text-gray-400' : 'text-[#3A3A3A]'} whitespace-nowrap`}>
+            <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
               Autonomous Driving and ADAS
             </p>
 
-            <div className={`flex items-center gap-4 ${isDarkMode ? 'text-gray-400' : 'text-[#111]'}`}>
-              <Phone className="w-[16px] h-[16px]" />
-              <Mail className="w-[16px] h-[16px]" />
-              <svg
-                className="w-[16px] h-[16px]"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
-              </svg>
-              <Linkedin className="w-[16px] h-[16px]" />
-              <Facebook className="w-[16px] h-[16px]" />
+            <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
+              <p>Swaayatt Robots Pvt. Ltd.</p>
+              <p>
+                1/3D, DRM Rd, Saket Nagar, Habib Ganj,<br />
+                Bhopal, Madhya Pradesh–462026
+              </p>
+              <p className="mt-2">Phone: +91 755 494 7025</p>
+            </div>
+
+            <div className={`flex items-center gap-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <Phone size={16} />
+              <Mail size={16} />
+              <Linkedin size={16} />
+              <Facebook size={16} />
             </div>
           </div>
 
-          {/* ===== DIVIDER ===== */}
-          <div className="hidden lg:flex justify-end pr-[28rem]">
-            <div className={`w-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-300'} h-full`} />
-          </div>
-
-          {/* ===== ADDRESS ===== */}
-          <div className="space-y-2 justify-self-start text-left lg:-ml-[27rem] mt-4 sm:mt-6">
-            <p className={`text-[15px] font-medium ${isDarkMode ? 'text-gray-300' : 'text-[#3A3A3A]'}`}>
-              Swaayatt Robots Pvt. Ltd.
-            </p>
-            <p className={`text-[15px] leading-snug ${isDarkMode ? 'text-gray-400' : 'text-[#3A3A3A]'}`}>
-              1/3D, DRM Rd, Saket Nagar, Habib Ganj,
-              <br />
-              Bhopal, Madhya Pradesh–462026
-            </p>
-            <p className={`text-[15px] ${isDarkMode ? 'text-gray-400' : 'text-[#3A3A3A]'}`}>
-              Phone: +91 755 494 7025
-            </p>
-          </div>
-
           {/* ===== COMPANY ===== */}
-          <div className="space-y-3 justify-self-start">
-            <p className={`font-medium text-[14px] ${isDarkMode ? 'text-gray-500' : 'text-[#9CA3AF]'}`}>
-              Company
-            </p>
-            <Link 
-              to="/blogs" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Blogs
-            </Link>
-            <Link 
-              to="/media" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Media
-            </Link>
-            <Link 
-              to="/career" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Career
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Contact
-            </Link>
+          <div className="space-y-4">
+            <p className={`text-md font-bold ${isDarkMode ? 'text-white' : 'text-[#3A3A3A]'}`}>COMPANY</p>
+            {["Blogs", "Media", "Career", "Contact"].map((item) => (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                className={`block text-sm ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-[#3A3A3A]'}`}
+              >
+                {item}
+              </Link>
+            ))}
           </div>
 
           {/* ===== RESEARCH ===== */}
-          <div className="space-y-3 justify-self-start">
-            <p className={`font-medium text-[14px] ${isDarkMode ? 'text-gray-500' : 'text-[#9CA3AF]'}`}>
-              Research ↗
-            </p>
-            <Link 
-              to="/research/on-road" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              On Road
-            </Link>
-            <Link 
-              to="/research/off-road" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Off Road
-            </Link>
-            <Link 
-              to="/research/mapping-localization" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Mapping and Localization
-            </Link>
-            <Link 
-              to="/research/motion-planning" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Motion Planning
-            </Link>
-            <Link 
-              to="/research/perception" 
-              className={`block text-[13px] ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-[#242424] hover:text-black'}`}
-            >
-              Perception
-            </Link>
+          <div className="space-y-4">
+            <p className={`text-md font-bold ${isDarkMode ? 'text-white' : 'text-[#3A3A3A]'}`}>RESEARCH</p>
+            {[
+              "On Road",
+              "Off Road",
+              "Mapping and Localization",
+              "Motion Planning",
+              "Perception",
+            ].map((item) => (
+              <Link
+                key={item}
+                to="/research"
+                className={`block text-sm ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-[#3A3A3A]'}`}
+              >
+                {item}
+              </Link>
+            ))}
           </div>
+
+          {/* ===== FUNDED ===== */}
+       <div className="space-y-6">
+  <p className={`text-md font-bold ${isDarkMode ? 'text-white' : 'text-[#3A3A3A]'} tracking-wide`}>
+    FUNDED AND SUPPORTED BY
+  </p>
+
+  {/* ===== LOGOS GRID ===== */}
+  <div className="grid grid-cols-3 gap-x-10 gap-y-8 text-center">
+    
+    {/* AXILOR */}
+    <div className="space-y-2">
+      <img
+        src="/images/footer/footer.png"
+        alt="Axilor"
+        className="mx-auto h-10 object-contain"
+      />
+      <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+        INR 100K Prize<br />Jan, 2018
+      </p>
+    </div>
+
+  
+
+    {/* MEITY */}
+    <div className="space-y-2">
+      <img
+        src="/images/footer/footer2.png"
+        alt="MeitY"
+        className="mx-auto h-10 object-contain"
+      />
+      <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+        INR 1M<br />Research Grant<br />March 22
+      </p>
+    </div>
+
+      {/* SEED FUND */}
+    <div className="space-y-2">
+      <img
+        src="/images/footer/footer1.jpg"
+        alt="Seed Fund"
+        className="mx-auto h-10 object-contain"
+      />
+      <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+        $3M Seed<br />July, 21
+      </p>
+    </div>
+
+    <div className="space-y-2 col-span-2 sm:col-span-1 sm:col-start-1 lg:col-span-1">
+      <img
+        src="/images/footer/footer2.png"
+        alt="Post Seed"
+        className="mx-auto h-10 object-contain"
+      />
+      <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+        $4M Post Seed<br />June, 24
+      </p>
+    </div>
+
+    {/* NVIDIA */}
+    <div className="space-y-2">
+      <img
+        src="/images/footer/footer3.jpg"
+        alt="Nvidia"
+        className="mx-auto h-10 object-contain"
+      />
+      <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+        $100,000<br />June, 22
+      </p>
+    </div>
+
+    {/* POST SEED */}
+    
+  </div>
+</div>
+
         </div>
 
         {/* ================= COPYRIGHT ================= */}
-        <div className={`border-t ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} py-4`}>
-          <p className={`text-[11px] text-center ${isDarkMode ? 'text-gray-500' : 'text-[#767676]'}`}>
+        <div className={`border-t ${isDarkMode ? 'border-gray-800' : 'border-gray-300'} mt-12 pt-6`}>
+          <p className={`text-xs text-center ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>
             © Swaayatt Robots Private Limited. All rights reserved.
           </p>
         </div>
-
       </div>
     </footer>
   );

@@ -1,7 +1,7 @@
 export default function HomeHero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden  bg-gradient-to-br
-    from-[#0d2f30]
+    from-[#0d4748]
     via-[#0b1e1d]
     to-black pb-[120px] sm:pb-[160px] lg:pb-[260px]">
 

@@ -71,11 +71,9 @@ export default function Header({ variant = "default" }) {
               <div className="font-rethink tracking-[0.1em]">
                 SWAAYATT
               </div>
-
               <div className="font-rethink leading-tight tracking-[0.15em]">
                 ROBOTS
               </div>
-
             </div>
           </Link>
 
@@ -108,28 +106,38 @@ export default function Header({ variant = "default" }) {
               {open && (
                 <div className="absolute left-[-180px] top-[60px] w-[720px] h-[300px] bg-white dark:bg-gray-900 rounded-[16px] shadow-2xl flex overflow-hidden border dark:border-gray-800">
                   {/* LEFT COLLAGE */}
-                  <div className="relative w-[420px] h-full overflow-hidden">
-                    <div className="grid grid-cols-5 h-full">
-                      {researchCollage.map((img, i) => (
-                        <img
-                          key={i}
-                          src={img}
-                          className="w-full h-full object-cover"
-                          alt=""
-                        />
-                      ))}
+                  <div className="relative w-[22vw] h-full overflow-hidden rounded-[1.2vw]">
+                    <div className="absolute inset-[0.6vw] overflow-hidden rounded-[0.9vw]">
+                      <div className="grid grid-cols-5 h-full">
+                        {researchCollage.map((img, i) => (
+                          <img
+                            key={i}
+                            src={img}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
+                        ))}
+                      </div>
+                      <div className="absolute inset-0 bg-black/60" />
                     </div>
-                    <div className="absolute inset-0 bg-black/60" />
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-[36px] font-semibold">Research</h3>
-                      <p className="text-sm opacity-90 max-w-[320px]">
-                        Autonomous driving research & breakthroughs.
+                    <div className="absolute bottom-[1.3vw] left-[1.3vw] text-white">
+                      <div className="flex items-end gap-[0.8vw] translate-y-[-0.25vw]">
+                        <h3 className="text-[2vw] font-medium tracking-[-0.02em] leading-none">
+                          Research
+                        </h3>
+                        <span className="w-[1.8vw] h-[1.8vw] rounded-full flex items-center justify-center backdrop-blur-[0.6vw] bg-white/20 border border-white/30 text-[1vw] font-medium translate-y-[0.15vw]">
+                          ›
+                        </span>
+                      </div>
+                      <p className="mt-[0.75vw] max-w-[17vw] text-[0.85vw] font-normal tracking-[-0.02em] leading-none opacity-90">
+                        Dive into the challenges, breakthroughs, and the potential
+                        of self-driving cars in one of the world's most complex
+                        driving environments.
                       </p>
                     </div>
                   </div>
-
                   {/* RIGHT MENU */}
-                  <div className="flex-1 px-7 py-7 flex flex-col justify-center">
+                  <div className="flex-1 px-1 py-10 flex flex-col justify-center">
                     {researchMenu.map((item) => (
                       <Link
                         key={item.label}
@@ -196,7 +204,7 @@ export default function Header({ variant = "default" }) {
         </div>
       </div>
 
-      {/* MOBILE NAV - Modified Section */}
+      {/* MOBILE NAV - Fixed Section */}
       {mobileOpen && (
         <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
           <div className="px-6 py-4 space-y-4">
@@ -204,7 +212,10 @@ export default function Header({ variant = "default" }) {
             <div className="flex justify-between items-center">
               <Link
                 to="/research"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  setMobileOpen(false);
+                  setMobileResearchOpen(false);
+                }}
                 className="py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Research
@@ -215,18 +226,26 @@ export default function Header({ variant = "default" }) {
                 onClick={() => setMobileResearchOpen(!mobileResearchOpen)}
                 className="p-2"
               >
-                <ChevronDown />
+                <ChevronDown 
+                  size={20} 
+                  className={`transition-transform duration-300 ${
+                    mobileResearchOpen ? "rotate-180" : ""
+                  } ${useDarkTheme ? "text-white" : "text-gray-800"}`}
+                />
               </button>
             </div>
 
             {mobileResearchOpen && (
-              <div className="pl-4 space-y-2 text-gray-600 dark:text-gray-400">
+              <div className="pl-4 space-y-2 border-l-2 border-gray-200 dark:border-gray-700">
                 {researchMenu.map((item) => (
                   <Link
                     key={item.label}
                     to={item.path}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      setMobileResearchOpen(false);
+                    }}
+                    className="block py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -236,28 +255,40 @@ export default function Header({ variant = "default" }) {
 
             <Link
               to="/media"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileResearchOpen(false);
+              }}
               className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               Media
             </Link>
             <Link
               to="/blogs"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileResearchOpen(false);
+              }}
               className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               Blogs
             </Link>
             <Link
               to="/career"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileResearchOpen(false);
+              }}
               className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               Career
             </Link>
             <Link
               to="/contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                setMobileOpen(false);
+                setMobileResearchOpen(false);
+              }}
               className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               Contact

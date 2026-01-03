@@ -3,6 +3,8 @@ import Blogs from "../components/home/Blogs";
 import FourHome from "../components/home/FourHome";
 import HomeHero from "../components/home/HomeHero";
 import SecondHero from "../components/home/SecondHero";
+
+import Media from "../components/home/Media"
 import ThirdHero from "../components/home/ThirdHero";
 import TimelineSection from "../components/home/timeline/ TimelineSection";
 
@@ -40,6 +42,10 @@ export default function Home() {
 
 <section>
   <Blogs/>
+</section>
+
+<section className="overflow-x-hidden">
+<Media/>
 </section>
 
 

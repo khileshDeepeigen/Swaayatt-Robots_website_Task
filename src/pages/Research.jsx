@@ -94,7 +94,7 @@
 
               {/* On Road Header + Buttons */}
               <div className="flex items-center pt-10 justify-between">
-                <div className={`font-rethink text-[26px] sm:text-[28px] flex items-center gap-2 ${isDarkMode ? "text-white" : "text-[#333333]"}`}>
+                <div className={`font-rethink text-xl sm:text-[28px] flex items-center gap-2 ${isDarkMode ? "text-white" : "text-[#333333]"}`}>
                   On Road <span className="text-[20px]">↗</span>
                 </div>
 
@@ -185,7 +185,7 @@
               <div className="flex items-center justify-between">
                 <h2 className={`font-rethink font-bold sm:text-[32px] text-xl sm:text-[38px] flex items-center gap-2 ${isDarkMode ? "text-white" : "text-[#333333]"} tracking-[-0.02em]`}>
                   Motion Planning and Decision Making
-                  <span className="text-[22px] sm:text-[24px]">↗</span>
+                  <span className="text-[22px] sm:text-[24px]    hidden sm:block">↗</span>
                 </h2>
 
                 
@@ -229,7 +229,7 @@
             <section className="space-y-6 sm:space-y-8">
               <div className="flex items-center justify-between">
                 <h2 className={`font-rethink font-bold sm:text-[32px] text-xl sm:text-[38px] flex items-center gap-2 ${isDarkMode ? "text-white" : "text-[#333333]"} tracking-[-0.02em]`}>
-                  Perception <span className="text-[22px] sm:text-[24px]">↗</span>
+                  Perception <span className="text-[22px] hidden sm:block sm:text-[24px]">↗</span>
                 </h2>
 
                 <div className="flex gap-3">
@@ -266,7 +266,7 @@
             <section className="space-y-6 sm:space-y-8">
               <div className="flex items-center justify-between">
                 <h2 className={`font-rethink font-bold sm:text-[32px] text-xl sm:text-[38px] flex items-center gap-2 ${isDarkMode ? "text-white" : "text-[#333333]"} tracking-[-0.02em]`}>
-                  Mapping & Localization <span className="text-[22px] sm:text-[24px]">↗</span>
+                  Mapping & Localization <span className="text-[22px] sm:text-[24px]  hidden sm:block">↗</span>
                 </h2>
 
               

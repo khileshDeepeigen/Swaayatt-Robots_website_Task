@@ -202,6 +202,7 @@ export default function ThirdHero() {
                     onClick={() => handleCardClick(i)}
                     className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 cursor-pointer
                       ${activeIndex === i ? "border-white/50" : "border-white/10"}`}
+                       style={{ fontFamily: "Rethink Sans, sans-serif" }}
                   >
                     <h3 className="text-xl md:text-2xl font-Rethink Sans mb-3 text-white">
                       {item.title}
